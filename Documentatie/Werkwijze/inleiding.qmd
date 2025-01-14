@@ -1,0 +1,18 @@
+# Inleiding
+
+In dit hoofdstuk beschrijven we de werkwijze om, met behulp van de Blokkendoos, te komen tot een inschatting van het effect van maatregelen op hoogwaterpieken.
+
+In de basis bestaat de gehele workflow uit GIS-analyses en -bewerkingen. We maken gebruik van diverse kaarten, waaronder:
+
+- Hoogtekaart (AHN)
+- Landgebruikskaart (LGN)
+- Bodemkaart van Nederland
+- Basisadministratie Gemeenten (BAG)
+- Basisregistratie Grootschalige Topografie (BGT)
+- Eventuele watervlakkenkaarten en kaarten met watergangen
+
+Daarnaast beschikken we over vuistregels voor ieder type maatregel. Deze vuistregels geven twee zaken:
+
+1. Onder welke topografische randvoorwaarden kan de maatregel worden geïmplementeerd? Denk aan aspecten als maximale helling, oppervlak onverhard, type ondergrond.
+2. Wat is het effect van de maatregel op een afvoergolf, uitgedrukt in m^3^ per hectare geïmplementeerd?
+

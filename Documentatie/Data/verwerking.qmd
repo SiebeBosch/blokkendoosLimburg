@@ -1,0 +1,28 @@
+# Verwerking
+
+Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos.
+
+## Stroomgebieden knelpunten wateroverlast
+Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.
+
+Onderstaand geven we het complete stappenplan om te komen van een gegeven wateroverlastknelpunt, een hoogtekaart en een kaart met watergangen tot het bijbehorende stroomgebied.
+
+::: {.grid}
+
+::: {.g-col-6}
+
+
+:::
+
+::: {.g-col-6}
+
+:::
+
+:::
+
+
+
+
+
+
+

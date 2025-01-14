@@ -1,0 +1,123 @@
+[
+  {
+    "objectID": "Werkwijze/inleiding.html",
+    "href": "Werkwijze/inleiding.html",
+    "title": "Inleiding",
+    "section": "",
+    "text": "Inleiding\nIn dit hoofdstuk beschrijven we de werkwijze om, met behulp van de Blokkendoos, te komen tot een inschatting van het effect van maatregelen op hoogwaterpieken.\nIn de basis bestaat de gehele workflow uit GIS-analyses en -bewerkingen. We maken gebruik van diverse kaarten, waaronder:\n\nHoogtekaart (AHN)\nLandgebruikskaart (LGN)\nBodemkaart van Nederland\nBasisadministratie Gemeenten (BAG)\nBasisregistratie Grootschalige Topografie (BGT)\nEventuele watervlakkenkaarten en kaarten met watergangen\n\nDaarnaast beschikken we over vuistregels voor ieder type maatregel. Deze vuistregels geven twee zaken:\n\nOnder welke topografische randvoorwaarden kan de maatregel worden geïmplementeerd? Denk aan aspecten als maximale helling, oppervlak onverhard, type ondergrond.\nWat is het effect van de maatregel op een afvoergolf, uitgedrukt in m3 per hectare geïmplementeerd?",
+    "crumbs": [
+      "Bronnen",
+      "Werkwijze",
+      "Inleiding"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
+    "section": "",
+    "text": "Welkom bij de Blokkendoos van Waterveiligheid en Ruimte Limburg (WRL). De repository die wij hier beschrijven geeft toegang tot softwareproducten waarmee u op een snelle en eenvoudige manier het effect van maatregelen in het watersysteem inschatten op het optreden van hoogwaters.\n\n\n\n\nWerkwijze\nDe Blokkendoos",
+    "crumbs": [
+      "Bronnen",
+      "Welkom"
+    ]
+  },
+  {
+    "objectID": "index.html#over-deze-repository",
+    "href": "index.html#over-deze-repository",
+    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
+    "section": "",
+    "text": "Welkom bij de Blokkendoos van Waterveiligheid en Ruimte Limburg (WRL). De repository die wij hier beschrijven geeft toegang tot softwareproducten waarmee u op een snelle en eenvoudige manier het effect van maatregelen in het watersysteem inschatten op het optreden van hoogwaters.",
+    "crumbs": [
+      "Bronnen",
+      "Welkom"
+    ]
+  },
+  {
+    "objectID": "index.html#snelle-links",
+    "href": "index.html#snelle-links",
+    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
+    "section": "",
+    "text": "Werkwijze\nDe Blokkendoos",
+    "crumbs": [
+      "Bronnen",
+      "Welkom"
+    ]
+  },
+  {
+    "objectID": "index.html#aanleiding-en-projectkader",
+    "href": "index.html#aanleiding-en-projectkader",
+    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
+    "section": "Aanleiding en projectkader",
+    "text": "Aanleiding en projectkader\nNa de extreme neerslag in de zomer van 2021 is het programma Waterveiligheid en Ruimte Limburg (WRL) opgestart. Dit programma bestaat uit de volgende drie pijlers:\n\nhet vergroten van de fysieke robuustheid van het watersysteem\nhet verankeren van water en bodem sturend als principe in de ruimtelijke ordening\nhet vergroten van zelfredzaamheid van inwoners.\n\nDeze repository bevat software ter ondersteuning van de eerste pijler. Voor deze pijler classificeert WRL potentiële maatregelen, onderscheiden naar de bekende typen:\n\nVasthouden\nBergen\nAfvoeren\nBeschermen.\n\nOm een eerste inschatting te maken van de effecten van maatregelen op bekende wateroverlastknelpunten hebben wij in opdracht van WRL deze ‘blokkendoos’ opgezet. Deze software geeft snel inzicht te krijgen in de bijdrage van maatregelen aan het verminderen van wateroverlast, uitgedrukt in m3.\nIn een latere fase van het overkoepelende project worden maatregelenpakketten samengesteld die in een rekenmodel integraal op effectiviteit beoordeeld worden. De blokkendoos zal hieraan kunnen bijdragen.\n\n\n\n\n\n\nOpdrachtgever\n\n\n\nDeze repository en alle producten erin zijn vervaardigd in opdracht van Waterveiligheid en Ruimte Limburg.",
+    "crumbs": [
+      "Bronnen",
+      "Welkom"
+    ]
+  },
+  {
+    "objectID": "Data/gegevensbronnen.html",
+    "href": "Data/gegevensbronnen.html",
+    "title": "Gegevensbronnen",
+    "section": "",
+    "text": "Gegevensbronnen\nHier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.\n\nHoogtedata\n\n\nHoogtedata is een van de voornaamste gegevensbronnen voor de Blokkendoos.\n\nDoelen\n\n\nBepalen welk stroomgebied hoort bij de bekende wateroverlast-knelpunten\nBepalen van de hellingshoek van het maaiveld\n\n\nVerkrijgen\n\nVia PDOK kan hoogtedata worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\n\n\n\n\n\n\nRuimtelijke begrenzing\n\n\nOm een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).\n\nDoelen\n\n\nRuimtelijk afbakenen van het gebied waarbinnen analyses en berekeningen moeten worden gedaan.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoordelijke autoriteit: Waterschap, Gemeente of Provincie. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp), Geopackage (.gpkg) of GeoJSON (.geojson).\n\n\n\n\n\n\n\nBeheergebied Waterschap Limburg (klik voor groot)\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\nBeheergebied Waterschap Limburg (klik voor groot)",
+    "crumbs": [
+      "Bronnen",
+      "Data",
+      "Gegevensbronnen"
+    ]
+  },
+  {
+    "objectID": "aanbevelingen.html",
+    "href": "aanbevelingen.html",
+    "title": "Aanbevelingen",
+    "section": "",
+    "text": "Aanbevelingen\nHet draaien van een stochastenanalyse met het CM-model als zodanig was een bijzonder taaie klus. In de eerste plaats vooral vanwege het gesloten karakter van dit model. Voor een hydroloog is dit model feitelijk een ‘black box’ waaraan via .mat-bestanden tijdreeksen moeten worden opgedrukt, in de hoop dat de juiste tijdreeks met de juiste eenheden en de juiste tijdstapgrootte zijn opgegeven in de juiste kolom van het invoerbestand. Sumaqua zou modelschematisaties van dit type een enorme boost kunnen geven als de modelinput en -output opgenomen zouden worden in een goede GUI (Graphical User Interface) met topografische kaart en daarop geplot de gebieden/polygonen die in het model vertegenwoordigd zijn.\nEen ander verbeterpunt van het CM-model van ’s-Hertogenbosch betreft het feit dat de initiële volumes van polygonen 22 en 24 niet nul mogen zijn. Dit ontdekten we gedurende het project omdat het model bij die instellingen crashte.\nTot slot zou het CM-model een heel stuk gebruiksvriendelijker worden voor stochastenanalyses als de input voor beekinstroom en lateralen (Q) zou worden losgetrokken van de input voor waterhoogtes (H). Doordat de beekinstroom en de maaswaterstanden in één en hetzelfde invoerbestand moesten worden weggeschreven waren we gedwongen om al op voorhand alle combinaties te bouwen van de bijbehorende stochasten. Anders gezegd: De Nieuwe Stochastentool kon niet goed tot zijn recht komen omdat het niet de kans kreeg zelf de combinaties van beekinstroom en maaswaterstand op te stellen.\nDe simulaties zonder laterale instromingen resulteren in sommige locaties, zelfs ver bovenstrooms in de Beneden-Aa in hogere waterstanden dan met laterale instromingen. Dit is volkomen contra-intuïtief. Wij hebben daarom meermaals de invoer gecheckt maar blijven op deze resultaten uitkomen. Aanbeveling is daarom dat Waterschap Aa en Maas nader onderzoekt wat de oorzaak hiervan is.\nTot slot hebben we, op last van de opdrachtgever, in dit project de aanname gedaan dat de stochasten maaswaterstand en beekinstroom statistisch onafhankelijk zijn. Deze aanname is in dit project acceptabel omdat het hier niet ging om de absolute overschrijdingswaterstanden maar om een gevoeligheidsanalyse. Voor toekomstige daadwerkelijke stochastenanalyses is het echter raadzaam om expliciet rekening te houden met de afhankelijkheid tussen beide stochasten.\nOp de beoordelingslocatie ADM Bossche Broek is het effect van het wel of niet meenemen van laterale instromingen of een verhoogde initiële vullingsgraad van het model verwaarloosbaar. Het effect op de overschrijdingswaterstanden ligt in de orde grootte van slechts enkele millimeters.\nEen nuance hierbij is op zijn plaats: in geen van de simulaties is het peil waarboven het bergingsgebied Bossche Broek wordt ingezet, 4.90 m + NAP, gehaald.\nLocaties waar het effect wél significant is, betreffen vooral de knopen in de polder achter het Segersgemaal. Bij ontbreken van laterale instromingen vinden in de polder geen peilstijgingen plaats en treedt het gemaal niet in werking."
+  },
+  {
+    "objectID": "Blokkendoos/inleiding.html",
+    "href": "Blokkendoos/inleiding.html",
+    "title": "Inleiding",
+    "section": "",
+    "text": "Inleiding\nDe term ‘blokkendoos’ gebruiken we om het de hier vervaardigde verzameling aan softwareproducten mee aan te duiden. Het doel van deze software is om snel inzicht te geven in de bijdrage van maatregelen uit de trits ‘Vasthouden, Bergen, Afvoeren, Beschermen’ aan het verminderen van wateroverlast, uitgedrukt in m3.\nDe eerste versie van de Blokkendoos is een Excel-document, vervaardigd door Hans Hakvoort. Door middel van lookup-tables wordt per gebied en per maatregel ingeschat welk effect een implementatie zou hebben op een afvoerpiek.",
+    "crumbs": [
+      "Bronnen",
+      "Blokkendoos",
+      "Inleiding"
+    ]
+  },
+  {
+    "objectID": "Data/verwerking.html",
+    "href": "Data/verwerking.html",
+    "title": "Verwerking",
+    "section": "",
+    "text": "Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos.\n\n\nVerreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nOnderstaand geven we het complete stappenplan om te komen van een gegeven wateroverlastknelpunt, een hoogtekaart en een kaart met watergangen tot het bijbehorende stroomgebied.",
+    "crumbs": [
+      "Bronnen",
+      "Data",
+      "Verwerking"
+    ]
+  },
+  {
+    "objectID": "Data/verwerking.html#stroomgebieden-knelpunten-wateroverlast",
+    "href": "Data/verwerking.html#stroomgebieden-knelpunten-wateroverlast",
+    "title": "Verwerking",
+    "section": "",
+    "text": "Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nOnderstaand geven we het complete stappenplan om te komen van een gegeven wateroverlastknelpunt, een hoogtekaart en een kaart met watergangen tot het bijbehorende stroomgebied.",
+    "crumbs": [
+      "Bronnen",
+      "Data",
+      "Verwerking"
+    ]
+  },
+  {
+    "objectID": "literatuur.html",
+    "href": "literatuur.html",
+    "title": "Bronnen",
+    "section": "",
+    "text": "Literatuur\n\n\nSoftware",
+    "crumbs": [
+      "Bronnen"
+    ]
+  }
+]

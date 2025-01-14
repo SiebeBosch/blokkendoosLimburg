@@ -1,0 +1,62 @@
+# Gegevensbronnen
+
+Hier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.
+
+### Hoogtedata
+
+::: {.grid}
+
+::: {.g-col-6}
+Hoogtedata is een van de voornaamste gegevensbronnen voor de Blokkendoos.
+
+
+Doelen
+:   * Bepalen welk stroomgebied hoort bij de bekende wateroverlast-knelpunten
+* Bepalen van de hellingshoek van het maaiveld
+
+Verkrijgen
+:   Via PDOK kan hoogtedata worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.
+
+:::
+
+::: {.g-col-6}
+
+![Hoogtekaart Zuidelijk Limburg (klik voor groot)](../static/img/dtm_zuidelijk_limburg.png)
+
+:::
+
+:::
+
+
+
+
+
+### Ruimtelijke begrenzing
+
+::: {.grid}
+::: {.g-col-6}
+Om een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).
+
+Doelen
+: * Ruimtelijk afbakenen van het gebied waarbinnen analyses en berekeningen moeten worden gedaan.
+
+Verkrijgen
+:   Doorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoordelijke autoriteit: Waterschap, Gemeente of Provincie. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp), Geopackage (.gpkg) of GeoJSON (.geojson).
+
+
+:::
+
+::: {.g-col-6}
+
+![Beheergebied Waterschap Limburg (klik voor groot)](../static/img/beheergebied_WL.png)
+
+:::
+
+:::
+
+
+
+
+
+
+

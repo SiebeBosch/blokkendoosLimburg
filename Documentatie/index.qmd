@@ -1,0 +1,52 @@
+---
+title: "Blokkendoos Waterveiligheid en Ruimte Limburg"
+author: "Siebe Bosch (Hydroconsult)"
+date: "2025-01-14"
+date-format: "dddd, D MMMM YYYY"  # Format to display the date in Dutch
+lang: nl
+---
+
+
+::: {.grid}
+
+::: {.g-col-8}
+## Over deze repository
+
+Welkom bij de Blokkendoos van Waterveiligheid en Ruimte Limburg (WRL). De [repository](https://github.com/SiebeBosch/blokkendoosLimburg) die wij hier beschrijven geeft toegang tot softwareproducten waarmee u op een snelle en eenvoudige manier het effect van maatregelen in het watersysteem inschatten op het optreden van hoogwaters.
+:::
+
+::: {.g-col-4}
+
+## Snelle links
+
+- [Werkwijze](Werkwijze/inleiding.qmd)
+- [De Blokkendoos](Blokkendoos/inleiding.qmd)
+
+:::
+
+:::
+<br>
+
+## Aanleiding en projectkader
+Na de extreme neerslag in de zomer van 2021 is het programma Waterveiligheid en Ruimte Limburg (WRL) opgestart. Dit programma bestaat uit de volgende drie pijlers: 
+
+1. het vergroten van de fysieke robuustheid van het watersysteem
+2. het verankeren van water en bodem sturend als principe in de ruimtelijke ordening
+3. het vergroten van zelfredzaamheid van inwoners. 
+
+Deze repository bevat software ter ondersteuning van de eerste pijler. Voor deze pijler classificeert WRL potentiële maatregelen, onderscheiden naar de bekende typen:
+
+* Vasthouden
+* Bergen
+* Afvoeren
+* Beschermen.
+
+Om een eerste inschatting te maken van de effecten van maatregelen op bekende wateroverlastknelpunten hebben wij in opdracht van WRL deze 'blokkendoos' opgezet. Deze software geeft snel inzicht te krijgen in de bijdrage van maatregelen aan het verminderen van wateroverlast, uitgedrukt in m^3^.
+
+In een latere fase van het overkoepelende project worden maatregelenpakketten samengesteld die in een rekenmodel integraal op effectiviteit beoordeeld worden. De blokkendoos zal hieraan kunnen bijdragen.
+
+
+::: {.callout-note}
+## Opdrachtgever
+Deze repository en alle producten erin zijn vervaardigd in opdracht van Waterveiligheid en Ruimte Limburg.
+:::

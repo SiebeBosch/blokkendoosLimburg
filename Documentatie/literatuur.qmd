@@ -1,0 +1,18 @@
+---
+title: "Bronnen"
+lang: nl
+format:
+  html:
+    code-fold: true
+    html-math-method: katex
+---
+
+### Literatuur
+
+
+### Software
+
+
+
+
+

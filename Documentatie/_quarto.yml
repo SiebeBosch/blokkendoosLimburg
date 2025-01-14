@@ -1,0 +1,53 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "Blokkendoos Waterveiligheid en Ruimte Limburg"
+  page-navigation: true
+  navbar:
+    left:
+      - text: "Blokkendoos"
+        menu:
+          - text: "Inleiding"
+            href: Blokkendoos/inleiding.qmd
+      - text: "Bronnen"
+        href: literatuur.qmd
+
+  sidebar:
+    logo: static/img/logo.png
+    logo-href: https://www.hydroconsult.nl
+    style: "docked"
+    search: true
+    collapse: false
+    contents:
+      - text: "Welkom"
+        href: index.qmd
+      - section: "Werkwijze"
+        contents:
+          - text: "Inleiding"
+            href: Werkwijze/inleiding.qmd
+      - section: "Blokkendoos"
+        contents:
+          - text: "Inleiding"
+            href: Blokkendoos/inleiding.qmd
+      - section: "Data"
+        contents:
+          - text: "Gegevensbronnen"
+            href: Data/gegevensbronnen.qmd
+          - text: "Verwerking"
+            href: Data/verwerking.qmd
+      - text: "Bronnen"
+        href: literatuur.qmd
+
+lang: nl
+format:
+  html:
+    theme: cosmo
+    css: custom.css
+    #toc: true
+    #include-in-header: header.html
+    lightbox: 
+      match: auto
+      effect: fade
+      desc-position: right
