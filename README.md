@@ -20,13 +20,13 @@ In een latere fase worden maatregelenpakketten samengesteld die in een rekenmode
 ## Blokkendoos
 Vereisten aan de blokkendoos zoals WRL die stelt:
 
-a. In het Geul-stroomgebied een aantal (orde grootte 20) bekende wateroverlastknelpunten (Valkenburg, Bunde, Partij-Wittem, Schin op Geul, Meerssen, etc) bepalen.
+a) in het Geul-stroomgebied een aantal (orde grootte 20) bekende wateroverlastknelpunten (Valkenburg, Bunde, Partij-Wittem, Schin op Geul, Meerssen, etc) bepalen.
 
-b. Per knelpuntlocatie het bovenstrooms oppervlak in GIS bepalen, dus per knelpunt het bijbehorende stroomgebied.
+b) per knelpuntlocatie het bovenstrooms oppervlak in GIS bepalen, dus per knelpunt het bijbehorende stroomgebied.
 
-c. De potentiële maatregelen die uit deelonderzoeken komen in de blokkendoos opnemen, aan het juiste deelstroomgebied toekennen en doorvertalen naar m3 extra bergingscapaciteit (via aannames).
+c) de potentiële maatregelen die uit deelonderzoeken komen in de blokkendoos opnemen, aan het juiste deelstroomgebied toekennen en doorvertalen naar m3 extra bergingscapaciteit (via aannames).
 
-d. In de Blokkendoos de extra bergingscapaciteit van ieder deelstroomgebied afzetten tegen de “opgave” die per wateroverlastknelpunt geldt. De opgave is een inschatting van het aantal m^3^
+d) in de Blokkendoos de extra bergingscapaciteit van ieder deelstroomgebied afzetten tegen de “opgave” die per wateroverlastknelpunt geldt. De opgave is een inschatting van het aantal m^3^
 afvoer die de zogeheten bankfull discharge overschrijdt bij een bepaalde neerslaggebeurtenis. Bankfull dient door de gebruiker te kunnen worden aangepast. Initiëel wordt 2 x maatgevende afvoer per stroomgebied gedefinieerd als 'bankfull'.
 
 Verder is gegeven dat de blokkendoos verschillende neerslaggebeurtenissen, in ieder geval juli '21, moet kunnen evalueren en de effecten inzichtelijk maken.
