@@ -28,6 +28,29 @@ Verkrijgen
 :::
 
 
+### Knelpunten
+
+
+::: {.grid}
+::: {.g-col-6}
+Om hydraulische knelpunten op te kunnen lossen met de beoogde maatregelen is uiteraard een lijst met bekende knelpunten te hebben.
+
+Doelen
+: * Het stroomgebied van ieder knelpunt in kaart brengen zodat de haalbaarheid van maatregelen kan worden onderzocht.
+
+Verkrijgen
+:   Doorgaans moeten dergelijke bekende knelpunten worden betrokken bij de verantwoordelijke waterbeheerder: Waterschap of Gemeente. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp).
+
+:::
+
+::: {.g-col-6}
+
+![Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)](../static/img/knelpunten.png)
+
+:::
+
+:::
+
 
 
 

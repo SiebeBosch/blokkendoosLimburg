@@ -27,16 +27,16 @@ website:
         contents:
           - text: "Inleiding"
             href: Werkwijze/inleiding.qmd
+      - section: "Voorbereiding"
+        contents:
+          - text: "Gegevensbronnen"
+            href: Data/gegevensbronnen.qmd
+          - text: "Gegevensverwerking"
+            href: Data/verwerking.qmd
       - section: "Blokkendoos"
         contents:
           - text: "Inleiding"
             href: Blokkendoos/inleiding.qmd
-      - section: "Data"
-        contents:
-          - text: "Gegevensbronnen"
-            href: Data/gegevensbronnen.qmd
-          - text: "Verwerking"
-            href: Data/verwerking.qmd
       - text: "Bronnen"
         href: literatuur.qmd
 

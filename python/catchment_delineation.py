@@ -9,14 +9,15 @@ import pyproj
 from pysheds.grid import Grid
 from pathlib import Path
 
-def calculate_upstream_catchments(discharges_path, id_field, dem_path, output_path):
+def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_path, output_path):
     """
-    Calculate upstream catchments for a set of given discharge points.
+    Calculate upstream catchments for a set of given discharge points, considering watercourse paths.
 
     Parameters:
         discharges_path (str): Path to the shapefile with discharge points.
         id_field (str): Name of the ID field in the shapefile.
         dem_path (str): Path to the DEM GeoTIFF file.
+        channels_path (str): Path to the shapefile with watercourse paths.
         output_path (str): Path to save the output shapefile.
 
     Returns:
@@ -24,6 +25,9 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, output_pa
     """
     # Read discharge points
     discharge_points = gpd.read_file(discharges_path)
+
+    # Read watercourse paths
+    channels = gpd.read_file(channels_path)
 
     # Load DEM
     grid = Grid.from_raster(dem_path, data_name='dem')
@@ -48,10 +52,14 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, output_pa
         shapes_generator = shapes(grid.view('catch').astype(np.uint8), mask=grid.view('catch') == 1, transform=grid.affine)
         for geom, value in shapes_generator:
             if value == 1:
-                catchments.append({
-                    'geometry': shape(geom),
-                    'id': id_value
-                })
+                catchment_geom = shape(geom)
+
+                # Check intersection with channels
+                if channels.intersects(catchment_geom).any():
+                    catchments.append({
+                        'geometry': catchment_geom,
+                        'id': id_value
+                    })
 
     # Create GeoDataFrame for catchments
     catchments_gdf = gpd.GeoDataFrame(catchments, crs=discharge_points.crs)
@@ -60,11 +68,12 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, output_pa
     catchments_gdf.to_file(output_path, driver='ESRI Shapefile')
 
 if __name__ == "__main__":
+    
     # Paths to input files and output
-    discharges_path = "path/to/discharge_points.shp"
-    id_field = "ID"
-    dem_path = "path/to/elevation.tif"
-    output_path = "path/to/output_catchments.shp"
+    discharges_path = r"c:\GITHUB\blokkendoosLimburg\data\knelpunt.shp"
+    id_field = "id"
+    dem_path = r"c:\GITHUB\blokkendoosLimburg\data\AHN_DTM_5M.tif"
+    channels_path = r"c:\GITHUB\blokkendoosLimburg\data\waterlopen_WL.shp"
+    output_path = r"c:\GITHUB\blokkendoosLimburg\data\knelpunt_strgeb.shp"
 
-    calculate_upstream_catchments(discharges_path, id_field, dem_path, output_path)
-
+    calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_path, output_path)

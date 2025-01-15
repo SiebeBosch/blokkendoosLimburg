@@ -60,10 +60,10 @@
     "href": "Data/gegevensbronnen.html",
     "title": "Gegevensbronnen",
     "section": "",
-    "text": "Gegevensbronnen\nHier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.\n\nHoogtedata\n\n\nHoogtedata is een van de voornaamste gegevensbronnen voor de Blokkendoos.\n\nDoelen\n\n\nBepalen welk stroomgebied hoort bij de bekende wateroverlast-knelpunten\nBepalen van de hellingshoek van het maaiveld\n\n\nVerkrijgen\n\nVia PDOK kan hoogtedata worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\n\n\n\n\n\n\nRuimtelijke begrenzing\n\n\nOm een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).\n\nDoelen\n\n\nRuimtelijk afbakenen van het gebied waarbinnen analyses en berekeningen moeten worden gedaan.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoordelijke autoriteit: Waterschap, Gemeente of Provincie. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp), Geopackage (.gpkg) of GeoJSON (.geojson).\n\n\n\n\n\n\n\nBeheergebied Waterschap Limburg (klik voor groot)\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\nBeheergebied Waterschap Limburg (klik voor groot)",
+    "text": "Gegevensbronnen\nHier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.\n\nHoogtedata\n\n\nHoogtedata is een van de voornaamste gegevensbronnen voor de Blokkendoos.\n\nDoelen\n\n\nBepalen welk stroomgebied hoort bij de bekende wateroverlast-knelpunten\nBepalen van de hellingshoek van het maaiveld\n\n\nVerkrijgen\n\nVia PDOK kan hoogtedata worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\n\n\n\n\n\n\nKnelpunten\n\n\nOm hydraulische knelpunten op te kunnen lossen met de beoogde maatregelen is uiteraard een lijst met bekende knelpunten te hebben.\n\nDoelen\n\n\nHet stroomgebied van ieder knelpunt in kaart brengen zodat de haalbaarheid van maatregelen kan worden onderzocht.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke bekende knelpunten worden betrokken bij de verantwoordelijke waterbeheerder: Waterschap of Gemeente. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp).\n\n\n\n\n\n\n\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\n\n\n\n\n\n\nRuimtelijke begrenzing\n\n\nOm een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).\n\nDoelen\n\n\nRuimtelijk afbakenen van het gebied waarbinnen analyses en berekeningen moeten worden gedaan.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoordelijke autoriteit: Waterschap, Gemeente of Provincie. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp), Geopackage (.gpkg) of GeoJSON (.geojson).\n\n\n\n\n\n\n\nBeheergebied Waterschap Limburg (klik voor groot)\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\nBeheergebied Waterschap Limburg (klik voor groot)",
     "crumbs": [
       "Bronnen",
-      "Data",
+      "Voorbereiding",
       "Gegevensbronnen"
     ]
   },
@@ -89,25 +89,25 @@
   {
     "objectID": "Data/verwerking.html",
     "href": "Data/verwerking.html",
-    "title": "Verwerking",
+    "title": "Gegevensverwerking",
     "section": "",
-    "text": "Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos.\n\n\nVerreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nDe methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.\n\n\n\nNaam: catchment_delineation.py\nInput:\n\nShapefile met puntlocaties (wateroverlastknelpunten)\nNaam van het veld wat het ID van ieder knelpunt bevat\nRaster met hoogtewaarden\n\nOutput:\n\nShapefile met polygonen",
+    "text": "Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos. De meeste van deze bewerkingen hebben we ondergebracht in Python-scripts die u ook in deze repository kunt vinden, in de map ‘python’.\nMerk op dat de benodigde libraries voor Python gespecificeerd staan in het bestand ‘environments.yml’. Zelf gebruiken wij Anaconda als Python-installatie en Visual Studio Code als ontwikkelomgeving. Om hierin een zgn. ‘virtual environment’ voor het project te maken, volg de onderstaande stappen, bijvoorbeeld:\nconda env create -f requirements.yml\nEn om de omgeving te activeren:\nconda activate blokkendoos_env\n\n\nVerreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nDe methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.\n\n\n\nNaam: catchment_delineation.py\nInput:\n\nShapefile met puntlocaties (wateroverlastknelpunten)\nNaam van het veld wat het ID van ieder knelpunt bevat\nRaster met hoogtewaarden\nShapefile met de watergangen in de regio\n\nOutput:\n\nShapefile met polygonen\n\n\n\n\n\n\n\nCatchment Delineation in Python.\n\n\n\n\n\n\n\nCatchment Delineation in Python.",
     "crumbs": [
       "Bronnen",
-      "Data",
-      "Verwerking"
+      "Voorbereiding",
+      "Gegevensverwerking"
     ]
   },
   {
     "objectID": "Data/verwerking.html#stroomgebieden-knelpunten-wateroverlast",
     "href": "Data/verwerking.html#stroomgebieden-knelpunten-wateroverlast",
-    "title": "Verwerking",
+    "title": "Gegevensverwerking",
     "section": "",
-    "text": "Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nDe methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.\n\n\n\nNaam: catchment_delineation.py\nInput:\n\nShapefile met puntlocaties (wateroverlastknelpunten)\nNaam van het veld wat het ID van ieder knelpunt bevat\nRaster met hoogtewaarden\n\nOutput:\n\nShapefile met polygonen",
+    "text": "Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nDe methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.\n\n\n\nNaam: catchment_delineation.py\nInput:\n\nShapefile met puntlocaties (wateroverlastknelpunten)\nNaam van het veld wat het ID van ieder knelpunt bevat\nRaster met hoogtewaarden\nShapefile met de watergangen in de regio\n\nOutput:\n\nShapefile met polygonen\n\n\n\n\n\n\n\nCatchment Delineation in Python.\n\n\n\n\n\n\n\nCatchment Delineation in Python.",
     "crumbs": [
       "Bronnen",
-      "Data",
-      "Verwerking"
+      "Voorbereiding",
+      "Gegevensverwerking"
     ]
   },
   {

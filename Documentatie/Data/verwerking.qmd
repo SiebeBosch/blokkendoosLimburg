@@ -1,6 +1,15 @@
-# Verwerking
+# Gegevensverwerking
 
-Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos.
+Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos. De meeste van deze bewerkingen hebben we ondergebracht in Python-scripts die u ook in deze repository kunt vinden, in de map 'python'.
+
+Merk op dat de benodigde libraries voor Python gespecificeerd staan in het bestand 'environments.yml'. Zelf gebruiken wij Anaconda als Python-installatie en Visual Studio Code als ontwikkelomgeving. Om hierin een zgn. 'virtual environment' voor het project te maken, volg de onderstaande stappen, bijvoorbeeld:
+
+```conda env create -f requirements.yml```
+
+En om de omgeving te activeren:
+
+```conda activate blokkendoos_env```
+
 
 ## Stroomgebieden knelpunten wateroverlast
 Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.
@@ -15,11 +24,14 @@ De methode om te komen tot een shapefile met een stroomgebied per knelpunt hebbe
     * Shapefile met puntlocaties (wateroverlastknelpunten)
     * Naam van het veld wat het ID van ieder knelpunt bevat
     * Raster met hoogtewaarden
+    * Shapefile met de watergangen in de regio
 * Output:
     * Shapefile met polygonen
 :::
 
 ::: {.g-col-6}
+
+![Catchment Delineation in Python.](../static/img/catchment_delineation.png)
 
 :::
 
