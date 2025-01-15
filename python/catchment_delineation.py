@@ -183,10 +183,11 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_
 if __name__ == "__main__":
     
     # Paths to input files and output
+    # Notice that the discharge locations are polygons, not points
     discharges_path = r"c:\GITHUB\blokkendoosLimburg\data\knelpunt_polygon.shp"
     id_field = "NAAM"
-    dem_path = r"c:\GITHUB\blokkendoosLimburg\data\AHN_DTM_25M.tif"
+    dem_path = r"c:\GITHUB\blokkendoosLimburg\data\eudem_dem_4258_europe_clip.tif"
     channels_path = r"c:\GITHUB\blokkendoosLimburg\data\waterlopen_WL.shp"
-    output_path = r"c:\GITHUB\blokkendoosLimburg\data\knelpunt_strgeb_polygon_25m.shp"
+    output_path = r"c:\GITHUB\blokkendoosLimburg\data\strgeb_knelpunt_EU_DEM.shp"
 
     calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_path, output_path)

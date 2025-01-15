@@ -228,12 +228,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="gegevensverwerking" class="level1">
 <h1>Gegevensverwerking</h1>
 <p>Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos. De meeste van deze bewerkingen hebben we ondergebracht in Python-scripts die u ook in deze repository kunt vinden, in de map ‘python’.</p>
-<p>Merk op dat de benodigde libraries voor Python gespecificeerd staan in het bestand ‘environments.yml’. Zelf gebruiken wij Anaconda als Python-installatie en Visual Studio Code als ontwikkelomgeving. Om hierin een zgn. ‘virtual environment’ voor het project te maken, volg de onderstaande stappen, bijvoorbeeld:</p>
-<p><code>conda env create -f requirements.yml</code></p>
+<p>Merk op dat de benodigde libraries voor Python en hun versienummers gespecificeerd staan in het bestand ‘environment.yml’. Zelf gebruiken wij Anaconda als Python-installatie en Visual Studio Code als ontwikkelomgeving. Om hierin een zgn. ‘virtual environment’ voor het project te maken, volg de onderstaande stappen:</p>
+<p><code>conda env create -f environment.yml</code></p>
 <p>En om de omgeving te activeren:</p>
-<p><code>conda activate blokkendoos_env</code></p>
-<section id="stroomgebieden-knelpunten-wateroverlast" class="level2">
-<h2 class="anchored" data-anchor-id="stroomgebieden-knelpunten-wateroverlast">Stroomgebieden knelpunten wateroverlast</h2>
+<p><code>conda activate blokkendoos</code></p>
+<section id="stroomgebied-bepalen-per-knelpunt" class="level2">
+<h2 class="anchored" data-anchor-id="stroomgebied-bepalen-per-knelpunt">Stroomgebied bepalen per knelpunt</h2>
 <p>Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.</p>
 <p>De methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.</p>
 <div class="grid">
@@ -242,9 +242,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Naam: catchment_delineation.py</li>
 <li>Input:
 <ul>
-<li>Shapefile met puntlocaties (wateroverlastknelpunten)</li>
+<li>Shapefile met knelpuntlocaties (let op: polygonen opgeven; niet punten!)</li>
 <li>Naam van het veld wat het ID van ieder knelpunt bevat</li>
-<li>Raster met hoogtewaarden</li>
+<li>Raster met hoogtewaarden. In verband met het grensoverschrijdend karakter hier gekozen voor het EU-DEM</li>
 <li>Shapefile met de watergangen in de regio</li>
 </ul></li>
 <li>Output:
@@ -252,12 +252,13 @@ ul.task-list li input[type="checkbox"] {
 <li>Shapefile met polygonen</li>
 </ul></li>
 </ul>
+<p>We merken op dat de stroomgebieden van de diverse knelpunten vaak overlappen. Hierdoor zijn niet alle stroomgebieden direct zichtbaar op de kaart.</p>
 </div>
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/catchment_delineation.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Catchment Delineation in Python."><img src="../static/img/catchment_delineation.png" class="img-fluid figure-img" alt="Catchment Delineation in Python."></a></p>
-<figcaption>Catchment Delineation in Python.</figcaption>
+<p><a href="../static/img/knelpunten_catchments.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Resultaat van Catchment Delineation in Python."><img src="../static/img/knelpunten_catchments.png" class="img-fluid figure-img" alt="Resultaat van Catchment Delineation in Python."></a></p>
+<figcaption>Resultaat van Catchment Delineation in Python.</figcaption>
 </figure>
 </div>
 </div>
@@ -265,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Catchment Delineation in Python.</span>
+<span class="glightbox-desc lightbox-desc-1">Resultaat van Catchment Delineation in Python.</span>
 </div>
 </section>
 </section>
@@ -671,7 +672,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"right","loop":false,"selector":".lightbox","openEffect":"fade","closeEffect":"fade"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"fade","loop":false,"openEffect":"fade","descPosition":"right"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -2,26 +2,47 @@
 
 Hier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.
 
-### Hoogtedata
+### Hoogtedata Nederland
 
 ::: {.grid}
 
 ::: {.g-col-6}
-Hoogtedata is een van de voornaamste gegevensbronnen voor de Blokkendoos.
+Hoogterasters vormen een van de voornaamste gegevensbronnen voor de Blokkendoos. Echter omdat de strooomgebieden grensoverschrijdend zijn gebruiken we het Nederlandse AHN alleen daar waar een hoge resolutie gevraagd wordt. Zo maken we voor de stroomgebiedsbepaling gebruik van een grensoverschrijdend raster. 
 
-
-Doelen
-:   * Bepalen welk stroomgebied hoort bij de bekende wateroverlast-knelpunten
-* Bepalen van de hellingshoek van het maaiveld
+Doel
+:   Bepalen van de hellingshoek van het maaiveld
 
 Verkrijgen
-:   Via PDOK kan hoogtedata worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.
+:   Via PDOK kan hoogtedata voor Nederland worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.
 
 :::
 
 ::: {.g-col-6}
 
 ![Hoogtekaart Zuidelijk Limburg (klik voor groot)](../static/img/dtm_zuidelijk_limburg.png)
+
+:::
+
+:::
+
+### Hoogtedata Europa
+
+::: {.grid}
+
+::: {.g-col-6}
+Om de grensoverschrijdende stroomgebieden te kunnen identificeren gebruiken we het [EU-DEM](https://ec.europa.eu/eurostat/web/gisco/geodata/digital-elevation-model/eu-dem#DD), vervaardigd in het Copernicus-programma. De rastercellen zijn ca. 20 bij 31m groot.
+
+Doel
+:   Voor ieder knelpunt het stroomgebied in kaart brengen
+
+Verkrijgen
+:   het EU-DEM kan in zijn geheel gedownload worden van [deze](https://ec.europa.eu/eurostat/web/gisco/geodata/digital-elevation-model/eu-dem#DD) website. 
+
+:::
+
+::: {.g-col-6}
+
+![Europees hoogtemodel EU-DEM   (klik voor groot)](../static/img/EU-DEM.png)
 
 :::
 

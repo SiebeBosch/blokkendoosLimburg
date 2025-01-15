@@ -228,22 +228,19 @@ ul.task-list li input[type="checkbox"] {
 <section id="gegevensbronnen" class="level1">
 <h1>Gegevensbronnen</h1>
 <p>Hier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.</p>
-<section id="hoogtedata" class="level3">
-<h3 class="anchored" data-anchor-id="hoogtedata">Hoogtedata</h3>
+<section id="hoogtedata-nederland" class="level3">
+<h3 class="anchored" data-anchor-id="hoogtedata-nederland">Hoogtedata Nederland</h3>
 <div class="grid">
 <div class="g-col-6">
-<p>Hoogtedata is een van de voornaamste gegevensbronnen voor de Blokkendoos.</p>
+<p>Hoogterasters vormen een van de voornaamste gegevensbronnen voor de Blokkendoos. Echter omdat de strooomgebieden grensoverschrijdend zijn gebruiken we het Nederlandse AHN alleen daar waar een hoge resolutie gevraagd wordt. Zo maken we voor de stroomgebiedsbepaling gebruik van een grensoverschrijdend raster.</p>
 <dl>
-<dt>Doelen</dt>
+<dt>Doel</dt>
 <dd>
-<ul>
-<li>Bepalen welk stroomgebied hoort bij de bekende wateroverlast-knelpunten</li>
-<li>Bepalen van de hellingshoek van het maaiveld</li>
-</ul>
+Bepalen van de hellingshoek van het maaiveld
 </dd>
 <dt>Verkrijgen</dt>
 <dd>
-Via PDOK kan hoogtedata worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.
+Via PDOK kan hoogtedata voor Nederland worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.
 </dd>
 </dl>
 </div>
@@ -252,6 +249,32 @@ Via PDOK kan hoogtedata worden verkregen. Voor het GIS-programma QGis is een uit
 <figure class="figure">
 <p><a href="../static/img/dtm_zuidelijk_limburg.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Hoogtekaart Zuidelijk Limburg (klik voor groot)"><img src="../static/img/dtm_zuidelijk_limburg.png" class="img-fluid figure-img" alt="Hoogtekaart Zuidelijk Limburg (klik voor groot)"></a></p>
 <figcaption>Hoogtekaart Zuidelijk Limburg (klik voor groot)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="hoogtedata-europa" class="level3">
+<h3 class="anchored" data-anchor-id="hoogtedata-europa">Hoogtedata Europa</h3>
+<div class="grid">
+<div class="g-col-6">
+<p>Om de grensoverschrijdende stroomgebieden te kunnen identificeren gebruiken we het <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/digital-elevation-model/eu-dem#DD">EU-DEM</a>, vervaardigd in het Copernicus-programma. De rastercellen zijn ca. 20 bij 31m groot.</p>
+<dl>
+<dt>Doel</dt>
+<dd>
+Voor ieder knelpunt het stroomgebied in kaart brengen
+</dd>
+<dt>Verkrijgen</dt>
+<dd>
+het EU-DEM kan in zijn geheel gedownload worden van <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/digital-elevation-model/eu-dem#DD">deze</a> website.
+</dd>
+</dl>
+</div>
+<div class="g-col-6">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../static/img/EU-DEM.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Europees hoogtemodel EU-DEM (klik voor groot)"><img src="../static/img/EU-DEM.png" class="img-fluid figure-img" alt="Europees hoogtemodel EU-DEM (klik voor groot)"></a></p>
+<figcaption>Europees hoogtemodel EU-DEM (klik voor groot)</figcaption>
 </figure>
 </div>
 </div>
@@ -278,7 +301,7 @@ Doorgaans moeten dergelijke bekende knelpunten worden betrokken bij de verantwoo
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/knelpunten.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)"><img src="../static/img/knelpunten.png" class="img-fluid figure-img" alt="Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)"></a></p>
+<p><a href="../static/img/knelpunten.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)"><img src="../static/img/knelpunten.png" class="img-fluid figure-img" alt="Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)"></a></p>
 <figcaption>Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)</figcaption>
 </figure>
 </div>
@@ -306,7 +329,7 @@ Doorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoo
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/beheergebied_WL.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Beheergebied Waterschap Limburg (klik voor groot)"><img src="../static/img/beheergebied_WL.png" class="img-fluid figure-img" alt="Beheergebied Waterschap Limburg (klik voor groot)"></a></p>
+<p><a href="../static/img/beheergebied_WL.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Beheergebied Waterschap Limburg (klik voor groot)"><img src="../static/img/beheergebied_WL.png" class="img-fluid figure-img" alt="Beheergebied Waterschap Limburg (klik voor groot)"></a></p>
 <figcaption>Beheergebied Waterschap Limburg (klik voor groot)</figcaption>
 </figure>
 </div>
@@ -316,8 +339,9 @@ Doorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoo
 
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1">Hoogtekaart Zuidelijk Limburg (klik voor groot)</span>
-<span class="glightbox-desc lightbox-desc-2">Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)</span>
-<span class="glightbox-desc lightbox-desc-3">Beheergebied Waterschap Limburg (klik voor groot)</span>
+<span class="glightbox-desc lightbox-desc-2">Europees hoogtemodel EU-DEM (klik voor groot)</span>
+<span class="glightbox-desc lightbox-desc-3">Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)</span>
+<span class="glightbox-desc lightbox-desc-4">Beheergebied Waterschap Limburg (klik voor groot)</span>
 </div>
 </section>
 </section>
@@ -723,7 +747,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"right","closeEffect":"fade","loop":false,"openEffect":"fade"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","openEffect":"fade","loop":false,"selector":".lightbox","descPosition":"right"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
