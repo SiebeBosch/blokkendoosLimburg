@@ -16,3 +16,17 @@ Daarnaast beschikken we over vuistregels voor ieder type maatregel. Deze vuistre
 1. Onder welke topografische randvoorwaarden kan de maatregel worden geïmplementeerd? Denk aan aspecten als maximale helling, oppervlak onverhard, type ondergrond.
 2. Wat is het effect van de maatregel op een afvoergolf, uitgedrukt in m^3^ per hectare geïmplementeerd?
 
+## Werkstappen
+
+### Catchment Delineation
+In dit proces bepalen we voor ieder knelpunt het bijbehorend stroomgebied. 
+
+### Wateropgave bepalen
+Voor ieder knelpunt/stroomgebied is het nu zaak om de wateropgave te bepalen. In het Blokkendoos-spreadsheet voegen we een aantal buien toe en kennen we de runoff-factor toe. Van de berekende afvoer trekken we de bankfull-discharge af. Het restant leidt tot wateroverlast en betitelen we als de wateropgave.
+
+### Bergingscapaciteit regenwaterbuffers bepalen
+Door in GIS een intersection uit te voeren tussen ieder stroomgebied en de kaart met regenwaterbuffers kunnen we nu bepalen welke bergingscapaciteit in m^3^ de regenwaterbuffers in het gebied bieden voor het onderhavige stroomgebied.
+
+### Bepalen aandeel verhard gebied
+Door in GIS een intersection uit te voeren tussen ieder stroomgebied en het onderdeel 'verhard' uit de landgebruikskaart kunnen we nu berekenen wel aandeel van het stroomgebied extreem snel (want verhard) reageert op neerslag.
+

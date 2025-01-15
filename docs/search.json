@@ -4,7 +4,19 @@
     "href": "Werkwijze/inleiding.html",
     "title": "Inleiding",
     "section": "",
-    "text": "Inleiding\nIn dit hoofdstuk beschrijven we de werkwijze om, met behulp van de Blokkendoos, te komen tot een inschatting van het effect van maatregelen op hoogwaterpieken.\nIn de basis bestaat de gehele workflow uit GIS-analyses en -bewerkingen. We maken gebruik van diverse kaarten, waaronder:\n\nHoogtekaart (AHN)\nLandgebruikskaart (LGN)\nBodemkaart van Nederland\nBasisadministratie Gemeenten (BAG)\nBasisregistratie Grootschalige Topografie (BGT)\nEventuele watervlakkenkaarten en kaarten met watergangen\n\nDaarnaast beschikken we over vuistregels voor ieder type maatregel. Deze vuistregels geven twee zaken:\n\nOnder welke topografische randvoorwaarden kan de maatregel worden geïmplementeerd? Denk aan aspecten als maximale helling, oppervlak onverhard, type ondergrond.\nWat is het effect van de maatregel op een afvoergolf, uitgedrukt in m3 per hectare geïmplementeerd?",
+    "text": "In dit hoofdstuk beschrijven we de werkwijze om, met behulp van de Blokkendoos, te komen tot een inschatting van het effect van maatregelen op hoogwaterpieken.\nIn de basis bestaat de gehele workflow uit GIS-analyses en -bewerkingen. We maken gebruik van diverse kaarten, waaronder:\n\nHoogtekaart (AHN)\nLandgebruikskaart (LGN)\nBodemkaart van Nederland\nBasisadministratie Gemeenten (BAG)\nBasisregistratie Grootschalige Topografie (BGT)\nEventuele watervlakkenkaarten en kaarten met watergangen\n\nDaarnaast beschikken we over vuistregels voor ieder type maatregel. Deze vuistregels geven twee zaken:\n\nOnder welke topografische randvoorwaarden kan de maatregel worden geïmplementeerd? Denk aan aspecten als maximale helling, oppervlak onverhard, type ondergrond.\nWat is het effect van de maatregel op een afvoergolf, uitgedrukt in m3 per hectare geïmplementeerd?\n\n\n\n\n\nIn dit proces bepalen we voor ieder knelpunt het bijbehorend stroomgebied.\n\n\n\nVoor ieder knelpunt/stroomgebied is het nu zaak om de wateropgave te bepalen. In het Blokkendoos-spreadsheet voegen we een aantal buien toe en kennen we de runoff-factor toe. Van de berekende afvoer trekken we de bankfull-discharge af. Het restant leidt tot wateroverlast en betitelen we als de wateropgave.\n\n\n\nDoor in GIS een intersection uit te voeren tussen ieder stroomgebied en de kaart met regenwaterbuffers kunnen we nu bepalen welke bergingscapaciteit in m3 de regenwaterbuffers in het gebied bieden voor het onderhavige stroomgebied.\n\n\n\nDoor in GIS een intersection uit te voeren tussen ieder stroomgebied en het onderdeel ‘verhard’ uit de landgebruikskaart kunnen we nu berekenen wel aandeel van het stroomgebied extreem snel (want verhard) reageert op neerslag.",
+    "crumbs": [
+      "Bronnen",
+      "Werkwijze",
+      "Inleiding"
+    ]
+  },
+  {
+    "objectID": "Werkwijze/inleiding.html#werkstappen",
+    "href": "Werkwijze/inleiding.html#werkstappen",
+    "title": "Inleiding",
+    "section": "",
+    "text": "In dit proces bepalen we voor ieder knelpunt het bijbehorend stroomgebied.\n\n\n\nVoor ieder knelpunt/stroomgebied is het nu zaak om de wateropgave te bepalen. In het Blokkendoos-spreadsheet voegen we een aantal buien toe en kennen we de runoff-factor toe. Van de berekende afvoer trekken we de bankfull-discharge af. Het restant leidt tot wateroverlast en betitelen we als de wateropgave.\n\n\n\nDoor in GIS een intersection uit te voeren tussen ieder stroomgebied en de kaart met regenwaterbuffers kunnen we nu bepalen welke bergingscapaciteit in m3 de regenwaterbuffers in het gebied bieden voor het onderhavige stroomgebied.\n\n\n\nDoor in GIS een intersection uit te voeren tussen ieder stroomgebied en het onderdeel ‘verhard’ uit de landgebruikskaart kunnen we nu berekenen wel aandeel van het stroomgebied extreem snel (want verhard) reageert op neerslag.",
     "crumbs": [
       "Bronnen",
       "Werkwijze",
