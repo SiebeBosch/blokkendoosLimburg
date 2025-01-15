@@ -47,10 +47,10 @@ from pysheds.grid import Grid
 
 def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_path, output_path):
     """
-    Calculate upstream catchments for a set of given discharge points, considering watercourse paths.
+    Calculate upstream catchments for a set of given discharge polygons, considering watercourse paths.
 
     Parameters:
-        discharges_path (str): Path to the shapefile with discharge points.
+        discharges_path (str): Path to the shapefile with discharge polygons.
         id_field (str): Name of the ID field in the shapefile.
         dem_path (str): Path to the DEM GeoTIFF file.
         channels_path (str): Path to the shapefile with watercourse paths.
@@ -59,8 +59,8 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_
     Returns:
         None
     """
-    # Read discharge points
-    discharge_points = gpd.read_file(discharges_path)
+    # Read discharge polygons
+    discharge_areas = gpd.read_file(discharges_path)
 
     # Read watercourse paths
     channels = gpd.read_file(channels_path)
@@ -89,40 +89,70 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_
     # Compute the flow direction grid
     fdir = grid.flowdir(inflated_dem, dirmap=dirmap)
 
-    # Get the DEM's transform
+    # Get the DEM's transform and metadata
     with rasterio.open(dem_path) as dem_src:
         dem_transform = dem_src.transform
         dem_crs = dem_src.crs
+        dem_shape = dem_src.shape
 
     catchments = []
 
-    # Ensure discharge points are in the same CRS as the DEM
-    if discharge_points.crs != dem_crs:
-        discharge_points = discharge_points.to_crs(dem_crs)
+    # Ensure discharge areas are in the same CRS as the DEM
+    if discharge_areas.crs != dem_crs:
+        discharge_areas = discharge_areas.to_crs(dem_crs)
 
-    print("Processing discharge points...")
-    for _, point in discharge_points.iterrows():
-        point_geom = point.geometry
-        id_value = point[id_field]
+    print("Processing discharge areas...")
+    for _, area in discharge_areas.iterrows():
+        area_geom = area.geometry
+        id_value = area[id_field]
+        print(f"Processing area with ID {id_value}...")
 
-        # Convert point geometry to grid coordinates using the DEM's transform
-        col, row = ~dem_transform * (point_geom.x, point_geom.y)
-        col, row = int(col), int(row)
+        # Create a mask for the current polygon
+        mask = np.zeros(dem_shape, dtype=bool)
+        
+        # Get bounds of the polygon in pixel coordinates
+        minx, miny, maxx, maxy = area_geom.bounds
+        col_min, row_max = ~dem_transform * (minx, miny)
+        col_max, row_min = ~dem_transform * (maxx, maxy)
+        
+        # Convert to integers and ensure within bounds
+        col_min = max(0, int(col_min))
+        col_max = min(dem_shape[1], int(col_max) + 1)
+        row_min = max(0, int(row_min))
+        row_max = min(dem_shape[0], int(row_max) + 1)
 
-        # Check if the point is within bounds
-        if 0 <= row < dem.shape[0] and 0 <= col < dem.shape[1]:
-            try:
-                print(f"Delineating catchment for point ID {id_value}...")
-                # Delineate the catchment upstream of the point
+        # Create a grid of coordinates for the bounding box
+        rows, cols = np.mgrid[row_min:row_max, col_min:col_max]
+        x_coords, y_coords = dem_transform * (cols.flatten(), rows.flatten())
+        
+        # Create points and check which ones are within the polygon
+        from shapely.geometry import Point
+        points = [Point(x, y) for x, y in zip(x_coords, y_coords)]
+        for point, row, col in zip(points, rows.flatten(), cols.flatten()):
+            if area_geom.contains(point):
+                mask[row, col] = True
+
+        try:
+            # Initialize combined catchment
+            combined_catch = np.zeros_like(dem, dtype=bool)
+            
+            # Get all cells within the polygon
+            start_cells = np.column_stack(np.where(mask))
+            
+            # Delineate catchment from each cell
+            for row, col in start_cells:
+                print(f"Delineating catchment for cell ({row}, {col}) in area {id_value}...")
                 catch = grid.catchment(fdir=fdir, x=col, y=row, dirmap=dirmap, xytype='index')
-                
-                # Print the number of cells in the catchment
-                num_cells = np.sum(catch == 1)
-                print(f"Catchment for point ID {id_value} has {num_cells} cells")
+                combined_catch = np.logical_or(combined_catch, catch == 1)
 
+            # Print the number of cells in the combined catchment
+            num_cells = np.sum(combined_catch)
+            print(f"Combined catchment for area ID {id_value} has {num_cells} cells")
+
+            if num_cells > 0:
                 # Mask and convert catchment grid to shapes
-                shapes_generator = shapes(catch.astype(np.uint8), 
-                                       mask=catch == 1, 
+                shapes_generator = shapes(combined_catch.astype(np.uint8), 
+                                       mask=combined_catch, 
                                        transform=grid.affine)
                 for geom, value in shapes_generator:
                     if value == 1:
@@ -134,10 +164,8 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_
                                 'geometry': catchment_geom,
                                 'id': id_value
                             })
-            except Exception as e:
-                print(f"Warning: Could not process point with ID {id_value}: {str(e)}")
-        else:
-            print(f"Warning: Point with ID {id_value} is outside DEM bounds")
+        except Exception as e:
+            print(f"Warning: Could not process area with ID {id_value}: {str(e)}")
 
     if not catchments:
         print("Warning: No valid catchments were generated")
@@ -155,10 +183,10 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_
 if __name__ == "__main__":
     
     # Paths to input files and output
-    discharges_path = r"c:\GITHUB\blokkendoosLimburg\data\knelpunt.shp"
-    id_field = "id"
+    discharges_path = r"c:\GITHUB\blokkendoosLimburg\data\knelpunt_polygon.shp"
+    id_field = "NAAM"
     dem_path = r"c:\GITHUB\blokkendoosLimburg\data\AHN_DTM_25M.tif"
     channels_path = r"c:\GITHUB\blokkendoosLimburg\data\waterlopen_WL.shp"
-    output_path = r"c:\GITHUB\blokkendoosLimburg\data\knelpunt_strgeb_25m.shp"
+    output_path = r"c:\GITHUB\blokkendoosLimburg\data\knelpunt_strgeb_polygon_25m.shp"
 
     calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_path, output_path)
