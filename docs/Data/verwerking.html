@@ -228,10 +228,22 @@ ul.task-list li input[type="checkbox"] {
 <section id="stroomgebieden-knelpunten-wateroverlast" class="level2">
 <h2 class="anchored" data-anchor-id="stroomgebieden-knelpunten-wateroverlast">Stroomgebieden knelpunten wateroverlast</h2>
 <p>Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.</p>
-<p>Onderstaand geven we het complete stappenplan om te komen van een gegeven wateroverlastknelpunt, een hoogtekaart en een kaart met watergangen tot het bijbehorende stroomgebied.</p>
+<p>De methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.</p>
 <div class="grid">
 <div class="g-col-6">
-
+<ul>
+<li>Naam: catchment_delineation.py</li>
+<li>Input:
+<ul>
+<li>Shapefile met puntlocaties (wateroverlastknelpunten)</li>
+<li>Naam van het veld wat het ID van ieder knelpunt bevat</li>
+<li>Raster met hoogtewaarden</li>
+</ul></li>
+<li>Output:
+<ul>
+<li>Shapefile met polygonen</li>
+</ul></li>
+</ul>
 </div>
 <div class="g-col-6">
 

@@ -79,7 +79,7 @@
     "href": "Blokkendoos/inleiding.html",
     "title": "Inleiding",
     "section": "",
-    "text": "Inleiding\nDe term ‘blokkendoos’ gebruiken we om het de hier vervaardigde verzameling aan softwareproducten mee aan te duiden. Het doel van deze software is om snel inzicht te geven in de bijdrage van maatregelen uit de trits ‘Vasthouden, Bergen, Afvoeren, Beschermen’ aan het verminderen van wateroverlast, uitgedrukt in m3.\nDe eerste versie van de Blokkendoos is een Excel-document, vervaardigd door Hans Hakvoort. Door middel van lookup-tables wordt per gebied en per maatregel ingeschat welk effect een implementatie zou hebben op een afvoerpiek.",
+    "text": "Inleiding\nDe term ‘blokkendoos’ gebruiken we om het de hier vervaardigde verzameling aan softwareproducten mee aan te duiden. Het doel van deze software is om snel inzicht te geven in de bijdrage van maatregelen uit de trits ‘Vasthouden, Bergen, Afvoeren, Beschermen’ aan het verminderen van wateroverlast, uitgedrukt in m3.\nDe eerste versie van de Blokkendoos is een Excel-document, vervaardigd door Hans Hakvoort. Door middel van lookup-tables wordt per gebied en per maatregel ingeschat welk effect een implementatie zou hebben op een afvoerpiek. Door alle maatregelen maal het oppervlak waarover ze worden toegepast bij elkaar op te tellen kan worden ingeschat welk effect het pakket heeft.\n\n\nDe eerste versie van de blokkendoos in Excel.\n\n\n\n\n\nBlokkendoos in Excel (klik voor groot)\n\n\n\n\n\n\n\nBlokkendoos in Excel (klik voor groot)",
     "crumbs": [
       "Bronnen",
       "Blokkendoos",
@@ -91,7 +91,7 @@
     "href": "Data/verwerking.html",
     "title": "Verwerking",
     "section": "",
-    "text": "Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos.\n\n\nVerreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nOnderstaand geven we het complete stappenplan om te komen van een gegeven wateroverlastknelpunt, een hoogtekaart en een kaart met watergangen tot het bijbehorende stroomgebied.",
+    "text": "Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos.\n\n\nVerreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nDe methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.\n\n\n\nNaam: catchment_delineation.py\nInput:\n\nShapefile met puntlocaties (wateroverlastknelpunten)\nNaam van het veld wat het ID van ieder knelpunt bevat\nRaster met hoogtewaarden\n\nOutput:\n\nShapefile met polygonen",
     "crumbs": [
       "Bronnen",
       "Data",
@@ -103,7 +103,7 @@
     "href": "Data/verwerking.html#stroomgebieden-knelpunten-wateroverlast",
     "title": "Verwerking",
     "section": "",
-    "text": "Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nOnderstaand geven we het complete stappenplan om te komen van een gegeven wateroverlastknelpunt, een hoogtekaart en een kaart met watergangen tot het bijbehorende stroomgebied.",
+    "text": "Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nDe methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.\n\n\n\nNaam: catchment_delineation.py\nInput:\n\nShapefile met puntlocaties (wateroverlastknelpunten)\nNaam van het veld wat het ID van ieder knelpunt bevat\nRaster met hoogtewaarden\n\nOutput:\n\nShapefile met polygonen",
     "crumbs": [
       "Bronnen",
       "Data",

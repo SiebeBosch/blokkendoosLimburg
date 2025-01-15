@@ -5,13 +5,18 @@ Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokke
 ## Stroomgebieden knelpunten wateroverlast
 Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.
 
-Onderstaand geven we het complete stappenplan om te komen van een gegeven wateroverlastknelpunt, een hoogtekaart en een kaart met watergangen tot het bijbehorende stroomgebied.
+De methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.
 
 ::: {.grid}
-
 ::: {.g-col-6}
 
-
+* Naam: catchment_delineation.py
+* Input:
+    * Shapefile met puntlocaties (wateroverlastknelpunten)
+    * Naam van het veld wat het ID van ieder knelpunt bevat
+    * Raster met hoogtewaarden
+* Output:
+    * Shapefile met polygonen
 :::
 
 ::: {.g-col-6}

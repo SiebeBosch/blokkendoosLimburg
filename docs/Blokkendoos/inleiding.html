@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -225,9 +228,25 @@ ul.task-list li input[type="checkbox"] {
 <section id="inleiding" class="level1">
 <h1>Inleiding</h1>
 <p>De term ‘blokkendoos’ gebruiken we om het de hier vervaardigde verzameling aan softwareproducten mee aan te duiden. Het doel van deze software is om snel inzicht te geven in de bijdrage van maatregelen uit de trits ‘Vasthouden, Bergen, Afvoeren, Beschermen’ aan het verminderen van wateroverlast, uitgedrukt in m<sup>3</sup>.</p>
-<p>De eerste versie van de Blokkendoos is een Excel-document, vervaardigd door Hans Hakvoort. Door middel van lookup-tables wordt per gebied en per maatregel ingeschat welk effect een implementatie zou hebben op een afvoerpiek.</p>
+<p>De eerste versie van de Blokkendoos is een Excel-document, vervaardigd door Hans Hakvoort. Door middel van lookup-tables wordt per gebied en per maatregel ingeschat welk effect een implementatie zou hebben op een afvoerpiek. Door alle maatregelen maal het oppervlak waarover ze worden toegepast bij elkaar op te tellen kan worden ingeschat welk effect het pakket heeft.</p>
+<div class="grid">
+<div class="g-col-6">
+<p>De eerste versie van de blokkendoos in Excel.</p>
+</div>
+<div class="g-col-6">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../static/img/blokkendoos_excel.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Blokkendoos in Excel (klik voor groot)"><img src="../static/img/blokkendoos_excel.png" class="img-fluid figure-img" alt="Blokkendoos in Excel (klik voor groot)"></a></p>
+<figcaption>Blokkendoos in Excel (klik voor groot)</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Blokkendoos in Excel (klik voor groot)</span>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -631,6 +650,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"right","loop":false,"closeEffect":"fade","openEffect":"fade","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

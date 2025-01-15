@@ -2,7 +2,22 @@
 
 De term 'blokkendoos' gebruiken we om het de hier vervaardigde verzameling aan softwareproducten mee aan te duiden. Het doel van deze software is om snel inzicht te geven in de bijdrage van maatregelen uit de trits 'Vasthouden, Bergen, Afvoeren, Beschermen' aan het verminderen van wateroverlast, uitgedrukt in m^3^.
 
-De eerste versie van de Blokkendoos is een Excel-document, vervaardigd door Hans Hakvoort. Door middel van lookup-tables wordt per gebied en per maatregel ingeschat welk effect een implementatie zou hebben op een afvoerpiek.
+De eerste versie van de Blokkendoos is een Excel-document, vervaardigd door Hans Hakvoort. Door middel van lookup-tables wordt per gebied en per maatregel ingeschat welk effect een implementatie zou hebben op een afvoerpiek. Door alle maatregelen maal het oppervlak waarover ze worden toegepast bij elkaar op te tellen kan worden ingeschat welk effect het pakket heeft.
+
+::: {.grid}
+
+::: {.g-col-6}
+De eerste versie van de blokkendoos in Excel.
+:::
+
+::: {.g-col-6}
+
+![Blokkendoos in Excel (klik voor groot)](../static/img/blokkendoos_excel.png)
+
+:::
+
+:::
+
 
 
 
