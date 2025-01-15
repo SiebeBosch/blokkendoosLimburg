@@ -3,7 +3,9 @@ Deze repository bevat de 'blokkendoos' waarmee Waterveiligheid en Ruimte Limburg
 
 Laatste release:
 
-Documentatie:
+[Documentatie](https://siebebosch.github.io/blokkendoosLimburg/) 
+
+N.B. de gehele documentatie van de Blokkendoos is geschreven in Quarto en wordt eveneens binnen deze repository beheerd. De map Documentatie bevat de inhoud. Deze wordt door Quarto (als plugin voor Visual Studio Code) gerenderd naar HTML/CSS/JS en als zodanig geplaatst in de map docs. Bij committen naar de repository wordt automatisch de [documentatie](https://siebebosch.github.io/blokkendoosLimburg/) bijgewerkt.
 
 ## Aanleiding en projectkader
 Na de extreme neerslag in de zomer van 2021 is het programma Waterveiligheid en Ruimte Limburg
