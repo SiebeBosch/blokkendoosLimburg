@@ -45,7 +45,7 @@ import numpy as np
 import pyproj
 from pysheds.grid import Grid
 
-def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_path, output_path):
+def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_path, output_path, require_channel_intersection=False):
     """
     Calculate upstream catchments for a set of given discharge polygons, considering watercourse paths.
 
@@ -55,6 +55,7 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_
         dem_path (str): Path to the DEM GeoTIFF file.
         channels_path (str): Path to the shapefile with watercourse paths.
         output_path (str): Path to save the output shapefile.
+        require_channel_intersection (bool): If True, only save catchments that intersect with channels
 
     Returns:
         None
@@ -150,7 +151,6 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_
             print(f"Combined catchment for area ID {id_value} has {num_cells} cells")
 
             if num_cells > 0:
-                # Mask and convert catchment grid to shapes
                 shapes_generator = shapes(combined_catch.astype(np.uint8), 
                                        mask=combined_catch, 
                                        transform=grid.affine)
@@ -158,12 +158,22 @@ def calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_
                     if value == 1:
                         catchment_geom = shape(geom)
 
-                        # Check intersection with channels
-                        if channels.intersects(catchment_geom).any():
+                        # Add debug information for channel intersection
+                        intersects_channels = channels.intersects(catchment_geom).any()
+                        print(f"Catchment for {id_value} intersects with channels: {intersects_channels}")
+                        
+                        # Print CRS information for debugging
+                        print(f"Channels CRS: {channels.crs}")
+                        print(f"Catchment CRS: {dem_crs}")
+
+                        # Only check channel intersection if required
+                        if not require_channel_intersection or intersects_channels:
                             catchments.append({
                                 'geometry': catchment_geom,
                                 'id': id_value
                             })
+                        else:
+                            print(f"Warning: Catchment for {id_value} was found but doesn't intersect with any channels")
         except Exception as e:
             print(f"Warning: Could not process area with ID {id_value}: {str(e)}")
 
@@ -184,10 +194,17 @@ if __name__ == "__main__":
     
     # Paths to input files and output
     # Notice that the discharge locations are polygons, not points
-    discharges_path = r"c:\GITHUB\blokkendoosLimburg\data\knelpunt_polygon.shp"
+    discharges_path = r"c:\SYNC\PROJECTEN\H3147.WRL\02.GIS\Knelpunten\knelpunt_polygon.shp"
     id_field = "NAAM"
-    dem_path = r"c:\GITHUB\blokkendoosLimburg\data\eudem_dem_4258_europe_clip.tif"
-    channels_path = r"c:\GITHUB\blokkendoosLimburg\data\waterlopen_WL.shp"
-    output_path = r"c:\GITHUB\blokkendoosLimburg\data\strgeb_knelpunt_EU_DEM.shp"
-
-    calculate_upstream_catchments(discharges_path, id_field, dem_path, channels_path, output_path)
+    dem_path = r"c:\SYNC\PROJECTEN\H3147.WRL\02.GIS\Hoogtedata\eudem_dem_4258_europe_clip.tif"
+    channels_path = r"c:\SYNC\PROJECTEN\H3147.WRL\02.GIS\Watergangen\waterlopen_WL.shp"
+    output_path = r"c:\SYNC\PROJECTEN\H3147.WRL\02.GIS\Knelpunten\strgeb_knelpunt_EU_DEM.shp"
+    
+    calculate_upstream_catchments(
+        discharges_path, 
+        id_field, 
+        dem_path, 
+        channels_path, 
+        output_path,
+        require_channel_intersection=False  # Set to False to include all catchments
+    )

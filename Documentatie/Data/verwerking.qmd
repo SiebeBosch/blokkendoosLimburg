@@ -1,15 +1,6 @@
 # Gegevensverwerking
 
-Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos. De meeste van deze bewerkingen hebben we ondergebracht in Python-scripts die u ook in deze repository kunt vinden, in de map 'python'.
-
-Merk op dat de benodigde libraries voor Python en hun versienummers gespecificeerd staan in het bestand 'environment.yml'. Zelf gebruiken wij Anaconda als Python-installatie en Visual Studio Code als ontwikkelomgeving. Om hierin een zgn. 'virtual environment' voor het project te maken, volg de onderstaande stappen:
-
-```conda env create -f environment.yml```
-
-En om de omgeving te activeren:
-
-```conda activate blokkendoos```
-
+Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos. Enkele van deze bewerkingen hebben we ondergebracht in Python-scripts die u ook in deze repository kunt vinden, in de map 'python'. Voor andere bewerkingen maakten we gebruik van bestaande functies in het programma [HydroToolbox](https://hydrotoolbox.hydromodelsuite.com/) (Hydroconsult) of van executables achter [Meteobase](http://www.meteobase.nl).
 
 ## Stroomgebied bepalen per knelpunt
 Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.
@@ -40,8 +31,42 @@ We merken op dat de stroomgebieden van de diverse knelpunten vaak overlappen. Hi
 
 :::
 
+Het ruimtelijk bereik van de uiteindelijke stroomgebiedenkaart is:
+
+| Hoekpunt     | X-Coordinaat        | Y-Coordinaat        |
+|------------|---------------------|---------------------|
+| Linksonder | 177940.8278912788   | 295740.8683683545  |
+| Rechtsboven| 207240.2618201609   | 325355.8341030380  |
 
 
+
+## Stedelijk oppervlak per stroomgebied
+Van ieder knelpunt-stroomgebied willen we nu het oppervlak stedelijk gebied in kaart brengen. Dit doen we door door in het programma HydroToolbox (Hydroconsult) een analyse uit te voeren op het onderliggende oppervlak stedelijk gebied onder iedere polygoon.
+
+::: {.grid}
+::: {.g-col-6}
+![Inventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.](../static/img/frmSOPP.png)
+
+
+:::
+
+::: {.g-col-6}
+
+* Naam: Hydrotoolbox, functie Vector Operations - add statistics from grid
+* Input:
+    * Shapefile met stroomgebieden van de knelpuntlocaties
+    * Naam van het veld waarnaar het resultaat moet worden geschreven
+    * Raster met oppervlakte landgebruik per cel
+* Output:
+    * Een nieuw veld in de shapefile met stroomgebieden. Hierin de oppervlaktes in m^2^
+
+:::
+
+:::
+
+## Neerslagreeksen per knelpunt-stroomgebied
+
+Om voor ieder knelpunt-stroomgebied een tijdreeks met historische neerslag te kunnen verkrijgen zetten we het programma WIWBRASTERBYPOLY.EXE (een executable van [Meteobase](www.meteobase.nl)) in. Hierbij geven we de (gezipte) shapefile met knelpunt-stroomgebieden mee. Het programma aggregeert de neerslag per stroomgebied en schrijft het resultaat naar een serie tijdreeksen. De duur van deze reeksen is beperkt omdat het Internationaal Radar Composiet nog niet heel lang geleden ontwikkeld is.
 
 
 

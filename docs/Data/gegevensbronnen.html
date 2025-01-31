@@ -335,6 +335,87 @@ Doorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoo
 </div>
 </div>
 </div>
+</section>
+<section id="stedelijk-oppervlak" class="level3">
+<h3 class="anchored" data-anchor-id="stedelijk-oppervlak">Stedelijk oppervlak</h3>
+<p>Het aandeel stedelijk gebied is een belangrijke indicator van de respons van een stroomgebied op hevige neerslag. Als bronbestand hiervoor gebruiken we de SOPP-kaart (Stedelijk Oppervlak) zoals gebruikt in het regionale grondwatermodel Ibrahym. Waterschap Limburg was zo vriendelijk deze kaart te verschaffen.</p>
+<div class="grid">
+<div class="g-col-6">
+<p>Om de kaart te kunnen omwerken naar een bruikbaar inputformaat voor de analyse schrijven we een Python-script wat het iMod-raster converteert naar GeoTIFF.</p>
+<dl>
+<dt>Doelen</dt>
+<dd>
+<ul>
+<li>Bepalen van de mate van verstedelijking van ieder knelpunt-stroomgebied</li>
+</ul>
+</dd>
+<dt>Verkrijgen</dt>
+<dd>
+Ontvangen van Waterschap Limburg in de vorm van de kaart met stedelijk oppervlak (SOPP.IDF) en door ons geconverteerd naar .TIF (GeoTiff).
+</dd>
+</dl>
+</div>
+<div class="g-col-6">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../static/img/stedelijk_oppervlak.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="Stedelijk oppervlak per 25x25m rastercel."><img src="../static/img/stedelijk_oppervlak.png" class="img-fluid figure-img" alt="Stedelijk oppervlak per 25x25m rastercel."></a></p>
+<figcaption>Stedelijk oppervlak per 25x25m rastercel.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Opmerking
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We merken op dat de cellen een maximaal stedelijk oppervlak van 312.5 m<sup>2</sup> hebben. Dit is slechts de helft van het theoretische maximum van 625 m<sup>2</sup>. Een keuze door de grondwatermodelleurs van Ibrahym ligt hieraan ten grondslag. Voor dit project beschouwen we een multiplier van maximaal 2 als een extra variabele waaraan nog gedraaid kan worden.</p>
+</div>
+</div>
+</section>
+<section id="neerslagrasters" class="level3">
+<h3 class="anchored" data-anchor-id="neerslagrasters">Neerslagrasters</h3>
+<p>Omdat de stroomgebieden behorende bij de knelpunten over de landsgrenzen reiken is het niet mogelijk om bij Meteobase de neerslagreeksen te downloaden. Wat echter wel mogelijk is, is met een script rechtstreeks de WIWB-API bevragen. Dit kan met Python, maar in ons geval werken we met de programma’s die achter Meteobase draaien: WIWBRASTER2ASCII.EXE en WIWBRASTERBYPOLY.EXE. De broncode hiervan is te vinden op de repository van <a href="https://github.com/SiebeBosch/Meteobase">Meteobase</a>.</p>
+<dl>
+<dt>WIWBRASTER2ASCII.EXE</dt>
+<dd>
+Bevraagt de rasters van WIWB en schrijft ze weg in RD-projectie, in ASCII formaat (.ASC).
+</dd>
+<dt>WIWBRASTERBYPOLY.EXE</dt>
+<dd>
+Bevraagt de rasters van WIWB en aggregeert de neerslagsom per polygoon van een opgegeven shapefile. Schrijft het resultaat vervolgens als tijdreeks per polygoon naar een CSV-bestand.
+</dd>
+</dl>
+<div class="grid">
+<div class="g-col-6">
+<p>De recente IRC-neerslagrasters (Internationaal RadarComposiet) van KNMI reiken voldoende ver over de landsgrenzen.</p>
+<dl>
+<dt>Doelen</dt>
+<dd>
+<ul>
+<li>Langjarige reeksen met gebiedsneerslag per knelpunt afleiden.</li>
+</ul>
+</dd>
+<dt>Verkrijgen</dt>
+<dd>
+Door rechtstreeks de API van WIWB (Weer Informatie voor het Waterbeheer) te bevragen.
+</dd>
+</dl>
+</div>
+<div class="g-col-6">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../static/img/IRC.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Voorbeeld van een neerslagraster uit het IRC."><img src="../static/img/IRC.png" class="img-fluid figure-img" alt="Voorbeeld van een neerslagraster uit het IRC."></a></p>
+<figcaption>Voorbeeld van een neerslagraster uit het IRC.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
 <div class="hidden" aria-hidden="true">
@@ -342,6 +423,8 @@ Doorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoo
 <span class="glightbox-desc lightbox-desc-2">Europees hoogtemodel EU-DEM (klik voor groot)</span>
 <span class="glightbox-desc lightbox-desc-3">Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)</span>
 <span class="glightbox-desc lightbox-desc-4">Beheergebied Waterschap Limburg (klik voor groot)</span>
+<span class="glightbox-desc lightbox-desc-5">Stedelijk oppervlak per 25x25m rastercel.</span>
+<span class="glightbox-desc lightbox-desc-6">Voorbeeld van een neerslagraster uit het IRC.</span>
 </div>
 </section>
 </section>
@@ -747,7 +830,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","openEffect":"fade","loop":false,"selector":".lightbox","descPosition":"right"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"fade","descPosition":"right","loop":false,"closeEffect":"fade"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

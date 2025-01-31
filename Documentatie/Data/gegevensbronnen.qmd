@@ -99,8 +99,61 @@ Verkrijgen
 :::
 
 
+### Stedelijk oppervlak
+Het aandeel stedelijk gebied is een belangrijke indicator van de respons van een stroomgebied op hevige neerslag. Als bronbestand hiervoor gebruiken we de SOPP-kaart (Stedelijk Oppervlak) zoals gebruikt in het regionale grondwatermodel Ibrahym. Waterschap Limburg was zo vriendelijk deze kaart te verschaffen.
 
 
+::: {.grid}
+::: {.g-col-6}
+Om de kaart te kunnen omwerken naar een bruikbaar inputformaat voor de analyse schrijven we een Python-script wat het iMod-raster converteert naar GeoTIFF.
 
+Doelen
+: * Bepalen van de mate van verstedelijking van ieder knelpunt-stroomgebied
 
+Verkrijgen
+:   Ontvangen van Waterschap Limburg in de vorm van de kaart met stedelijk oppervlak (SOPP.IDF) en door ons geconverteerd naar .TIF (GeoTiff).
 
+:::
+
+::: {.g-col-6}
+
+![Stedelijk oppervlak per 25x25m rastercel.](../static/img/stedelijk_oppervlak.png)
+
+:::
+
+:::
+
+::: {.callout-note}
+We merken op dat de cellen een maximaal stedelijk oppervlak van 312.5 m^2^ hebben. Dit is slechts de helft van het theoretische maximum van 625 m^2^. Een keuze door de grondwatermodelleurs van Ibrahym ligt hieraan ten grondslag. Voor dit project beschouwen we een multiplier van maximaal 2 als een extra variabele waaraan nog gedraaid kan worden.
+
+:::
+
+### Neerslagrasters
+
+Omdat de stroomgebieden behorende bij de knelpunten over de landsgrenzen reiken is het niet mogelijk om bij Meteobase de neerslagreeksen te downloaden. Wat echter wel mogelijk is, is met een script rechtstreeks de WIWB-API bevragen. Dit kan met Python, maar in ons geval werken we met de programma's die achter Meteobase draaien: WIWBRASTER2ASCII.EXE en WIWBRASTERBYPOLY.EXE. De broncode hiervan is te vinden op de repository van [Meteobase](https://github.com/SiebeBosch/Meteobase).
+
+WIWBRASTER2ASCII.EXE
+:   Bevraagt de rasters van WIWB en schrijft ze weg in RD-projectie, in ASCII formaat (.ASC).
+
+WIWBRASTERBYPOLY.EXE
+:   Bevraagt de rasters van WIWB en aggregeert de neerslagsom per polygoon van een opgegeven shapefile. Schrijft het resultaat vervolgens als tijdreeks per polygoon naar een CSV-bestand.
+
+::: {.grid}
+::: {.g-col-6}
+De recente IRC-neerslagrasters (Internationaal RadarComposiet) van KNMI reiken voldoende ver over de landsgrenzen.
+
+Doelen
+: * Langjarige reeksen met gebiedsneerslag per knelpunt afleiden.
+
+Verkrijgen
+:   Door rechtstreeks de API van WIWB (Weer Informatie voor het Waterbeheer) te bevragen.
+
+:::
+
+::: {.g-col-6}
+
+![Voorbeeld van een neerslagraster uit het IRC.](../static/img/IRC.png)
+
+:::
+
+:::

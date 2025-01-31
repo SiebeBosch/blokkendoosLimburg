@@ -227,11 +227,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="gegevensverwerking" class="level1">
 <h1>Gegevensverwerking</h1>
-<p>Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos. De meeste van deze bewerkingen hebben we ondergebracht in Python-scripts die u ook in deze repository kunt vinden, in de map ‘python’.</p>
-<p>Merk op dat de benodigde libraries voor Python en hun versienummers gespecificeerd staan in het bestand ‘environment.yml’. Zelf gebruiken wij Anaconda als Python-installatie en Visual Studio Code als ontwikkelomgeving. Om hierin een zgn. ‘virtual environment’ voor het project te maken, volg de onderstaande stappen:</p>
-<p><code>conda env create -f environment.yml</code></p>
-<p>En om de omgeving te activeren:</p>
-<p><code>conda activate blokkendoos</code></p>
+<p>Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos. Enkele van deze bewerkingen hebben we ondergebracht in Python-scripts die u ook in deze repository kunt vinden, in de map ‘python’. Voor andere bewerkingen maakten we gebruik van bestaande functies in het programma <a href="https://hydrotoolbox.hydromodelsuite.com/">HydroToolbox</a> (Hydroconsult) of van executables achter <a href="http://www.meteobase.nl">Meteobase</a>.</p>
 <section id="stroomgebied-bepalen-per-knelpunt" class="level2">
 <h2 class="anchored" data-anchor-id="stroomgebied-bepalen-per-knelpunt">Stroomgebied bepalen per knelpunt</h2>
 <p>Verreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.</p>
@@ -257,16 +253,72 @@ ul.task-list li input[type="checkbox"] {
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/knelpunten_catchments.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Resultaat van Catchment Delineation in Python."><img src="../static/img/knelpunten_catchments.png" class="img-fluid figure-img" alt="Resultaat van Catchment Delineation in Python."></a></p>
+<p><a href="../static/img/knelpunten_catchments.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Resultaat van Catchment Delineation in Python."><img src="../static/img/knelpunten_catchments.png" class="img-fluid figure-img" alt="Resultaat van Catchment Delineation in Python."></a></p>
 <figcaption>Resultaat van Catchment Delineation in Python.</figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>Het ruimtelijk bereik van de uiteindelijke stroomgebiedenkaart is:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Hoekpunt</th>
+<th>X-Coordinaat</th>
+<th>Y-Coordinaat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Linksonder</td>
+<td>177940.8278912788</td>
+<td>295740.8683683545</td>
+</tr>
+<tr class="even">
+<td>Rechtsboven</td>
+<td>207240.2618201609</td>
+<td>325355.8341030380</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stedelijk-oppervlak-per-stroomgebied" class="level2">
+<h2 class="anchored" data-anchor-id="stedelijk-oppervlak-per-stroomgebied">Stedelijk oppervlak per stroomgebied</h2>
+<p>Van ieder knelpunt-stroomgebied willen we nu het oppervlak stedelijk gebied in kaart brengen. Dit doen we door door in het programma HydroToolbox (Hydroconsult) een analyse uit te voeren op het onderliggende oppervlak stedelijk gebied onder iedere polygoon.</p>
+<div class="grid">
+<div class="g-col-6">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../static/img/frmSOPP.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Inventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox."><img src="../static/img/frmSOPP.png" class="img-fluid figure-img" alt="Inventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox."></a></p>
+<figcaption>Inventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.</figcaption>
+</figure>
+</div>
+</div>
+<div class="g-col-6">
+<ul>
+<li>Naam: Hydrotoolbox, functie Vector Operations - add statistics from grid</li>
+<li>Input:
+<ul>
+<li>Shapefile met stroomgebieden van de knelpuntlocaties</li>
+<li>Naam van het veld waarnaar het resultaat moet worden geschreven</li>
+<li>Raster met oppervlakte landgebruik per cel</li>
+</ul></li>
+<li>Output:
+<ul>
+<li>Een nieuw veld in de shapefile met stroomgebieden. Hierin de oppervlaktes in m<sup>2</sup></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="neerslagreeksen-per-knelpunt-stroomgebied" class="level2">
+<h2 class="anchored" data-anchor-id="neerslagreeksen-per-knelpunt-stroomgebied">Neerslagreeksen per knelpunt-stroomgebied</h2>
+<p>Om voor ieder knelpunt-stroomgebied een tijdreeks met historische neerslag te kunnen verkrijgen zetten we het programma WIWBRASTERBYPOLY.EXE (een executable van <a href="www.meteobase.nl">Meteobase</a>) in. Hierbij geven we de (gezipte) shapefile met knelpunt-stroomgebieden mee. Het programma aggregeert de neerslag per stroomgebied en schrijft het resultaat naar een serie tijdreeksen. De duur van deze reeksen is beperkt omdat het Internationaal Radar Composiet nog niet heel lang geleden ontwikkeld is.</p>
 
 
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1">Resultaat van Catchment Delineation in Python.</span>
+<span class="glightbox-desc lightbox-desc-2">Inventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.</span>
 </div>
 </section>
 </section>
@@ -672,7 +724,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"fade","loop":false,"openEffect":"fade","descPosition":"right"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"right","closeEffect":"fade","selector":".lightbox","openEffect":"fade","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
