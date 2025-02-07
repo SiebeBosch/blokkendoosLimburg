@@ -24,78 +24,13 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
+    "objectID": "literatuur.html",
+    "href": "literatuur.html",
+    "title": "Bronnen",
     "section": "",
-    "text": "Welkom bij de Blokkendoos van Waterveiligheid en Ruimte Limburg (WRL). De repository die wij hier beschrijven geeft toegang tot softwareproducten waarmee u op een snelle en eenvoudige manier het effect van maatregelen in het watersysteem inschatten op het optreden van hoogwaters.\n\n\n\n\nWerkwijze\nDe Blokkendoos",
+    "text": "Literatuur\n\n\nSoftware",
     "crumbs": [
-      "Bronnen",
-      "Welkom"
-    ]
-  },
-  {
-    "objectID": "index.html#over-deze-repository",
-    "href": "index.html#over-deze-repository",
-    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
-    "section": "",
-    "text": "Welkom bij de Blokkendoos van Waterveiligheid en Ruimte Limburg (WRL). De repository die wij hier beschrijven geeft toegang tot softwareproducten waarmee u op een snelle en eenvoudige manier het effect van maatregelen in het watersysteem inschatten op het optreden van hoogwaters.",
-    "crumbs": [
-      "Bronnen",
-      "Welkom"
-    ]
-  },
-  {
-    "objectID": "index.html#snelle-links",
-    "href": "index.html#snelle-links",
-    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
-    "section": "",
-    "text": "Werkwijze\nDe Blokkendoos",
-    "crumbs": [
-      "Bronnen",
-      "Welkom"
-    ]
-  },
-  {
-    "objectID": "index.html#aanleiding-en-projectkader",
-    "href": "index.html#aanleiding-en-projectkader",
-    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
-    "section": "Aanleiding en projectkader",
-    "text": "Aanleiding en projectkader\nNa de extreme neerslag in de zomer van 2021 is het programma Waterveiligheid en Ruimte Limburg (WRL) opgestart. Dit programma bestaat uit de volgende drie pijlers:\n\nhet vergroten van de fysieke robuustheid van het watersysteem\nhet verankeren van water en bodem sturend als principe in de ruimtelijke ordening\nhet vergroten van zelfredzaamheid van inwoners.\n\nDeze repository bevat software ter ondersteuning van de eerste pijler. Voor deze pijler classificeert WRL potentiële maatregelen, onderscheiden naar de bekende typen:\n\nVasthouden\nBergen\nAfvoeren\nBeschermen.\n\nOm een eerste inschatting te maken van de effecten van maatregelen op bekende wateroverlastknelpunten hebben wij in opdracht van WRL deze ‘blokkendoos’ opgezet. Deze software geeft snel inzicht te krijgen in de bijdrage van maatregelen aan het verminderen van wateroverlast, uitgedrukt in m3.\nIn een latere fase van het overkoepelende project worden maatregelenpakketten samengesteld die in een rekenmodel integraal op effectiviteit beoordeeld worden. De blokkendoos zal hieraan kunnen bijdragen.\n\n\n\n\n\n\nOpdrachtgever\n\n\n\nDeze repository en alle producten erin zijn vervaardigd in opdracht van Waterveiligheid en Ruimte Limburg.",
-    "crumbs": [
-      "Bronnen",
-      "Welkom"
-    ]
-  },
-  {
-    "objectID": "Data/gegevensbronnen.html",
-    "href": "Data/gegevensbronnen.html",
-    "title": "Gegevensbronnen",
-    "section": "",
-    "text": "Hier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.\n\n\n\n\nHoogterasters vormen een van de voornaamste gegevensbronnen voor de Blokkendoos. Echter omdat de strooomgebieden grensoverschrijdend zijn gebruiken we het Nederlandse AHN alleen daar waar een hoge resolutie gevraagd wordt. Zo maken we voor de stroomgebiedsbepaling gebruik van een grensoverschrijdend raster.\n\nDoel\n\nBepalen van de hellingshoek van het maaiveld\n\nVerkrijgen\n\nVia PDOK kan hoogtedata voor Nederland worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\n\n\n\n\n\n\n\n\n\nOm de grensoverschrijdende stroomgebieden te kunnen identificeren gebruiken we het EU-DEM, vervaardigd in het Copernicus-programma. De rastercellen zijn ca. 20 bij 31m groot.\n\nDoel\n\nVoor ieder knelpunt het stroomgebied in kaart brengen\n\nVerkrijgen\n\nhet EU-DEM kan in zijn geheel gedownload worden van deze website.\n\n\n\n\n\n\n\nEuropees hoogtemodel EU-DEM (klik voor groot)\n\n\n\n\n\n\n\n\n\nOm hydraulische knelpunten op te kunnen lossen met de beoogde maatregelen is uiteraard een lijst met bekende knelpunten te hebben.\n\nDoelen\n\n\nHet stroomgebied van ieder knelpunt in kaart brengen zodat de haalbaarheid van maatregelen kan worden onderzocht.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke bekende knelpunten worden betrokken bij de verantwoordelijke waterbeheerder: Waterschap of Gemeente. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp).\n\n\n\n\n\n\n\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\n\n\n\n\n\n\n\n\n\nOm een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).\n\nDoelen\n\n\nRuimtelijk afbakenen van het gebied waarbinnen analyses en berekeningen moeten worden gedaan.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoordelijke autoriteit: Waterschap, Gemeente of Provincie. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp), Geopackage (.gpkg) of GeoJSON (.geojson).\n\n\n\n\n\n\n\nBeheergebied Waterschap Limburg (klik voor groot)\n\n\n\n\n\n\n\nHet aandeel stedelijk gebied is een belangrijke indicator van de respons van een stroomgebied op hevige neerslag. Als bronbestand hiervoor gebruiken we de SOPP-kaart (Stedelijk Oppervlak) zoals gebruikt in het regionale grondwatermodel Ibrahym. Waterschap Limburg was zo vriendelijk deze kaart te verschaffen.\n\n\nOm de kaart te kunnen omwerken naar een bruikbaar inputformaat voor de analyse schrijven we een Python-script wat het iMod-raster converteert naar GeoTIFF.\n\nDoelen\n\n\nBepalen van de mate van verstedelijking van ieder knelpunt-stroomgebied\n\n\nVerkrijgen\n\nOntvangen van Waterschap Limburg in de vorm van de kaart met stedelijk oppervlak (SOPP.IDF) en door ons geconverteerd naar .TIF (GeoTiff).\n\n\n\n\n\n\n\nStedelijk oppervlak per 25x25m rastercel.\n\n\n\n\n\n\n\n\n\n\nOpmerking\n\n\n\nWe merken op dat de cellen een maximaal stedelijk oppervlak van 312.5 m2 hebben. Dit is slechts de helft van het theoretische maximum van 625 m2. Een keuze door de grondwatermodelleurs van Ibrahym ligt hieraan ten grondslag. Voor dit project beschouwen we een multiplier van maximaal 2 als een extra variabele waaraan nog gedraaid kan worden.\n\n\n\n\n\nOmdat de stroomgebieden behorende bij de knelpunten over de landsgrenzen reiken is het niet mogelijk om bij Meteobase de neerslagreeksen te downloaden. Wat echter wel mogelijk is, is met een script rechtstreeks de WIWB-API bevragen. Dit kan met Python, maar in ons geval werken we met de programma’s die achter Meteobase draaien: WIWBRASTER2ASCII.EXE en WIWBRASTERBYPOLY.EXE. De broncode hiervan is te vinden op de repository van Meteobase.\n\nWIWBRASTER2ASCII.EXE\n\nBevraagt de rasters van WIWB en schrijft ze weg in RD-projectie, in ASCII formaat (.ASC).\n\nWIWBRASTERBYPOLY.EXE\n\nBevraagt de rasters van WIWB en aggregeert de neerslagsom per polygoon van een opgegeven shapefile. Schrijft het resultaat vervolgens als tijdreeks per polygoon naar een CSV-bestand.\n\n\n\n\nDe recente IRC-neerslagrasters (Internationaal RadarComposiet) van KNMI reiken voldoende ver over de landsgrenzen.\n\nDoelen\n\n\nLangjarige reeksen met gebiedsneerslag per knelpunt afleiden.\n\n\nVerkrijgen\n\nDoor rechtstreeks de API van WIWB (Weer Informatie voor het Waterbeheer) te bevragen.\n\n\n\n\n\n\n\nVoorbeeld van een neerslagraster uit het IRC.\n\n\n\n\n\n\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\nEuropees hoogtemodel EU-DEM (klik voor groot)\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\nBeheergebied Waterschap Limburg (klik voor groot)\nStedelijk oppervlak per 25x25m rastercel.\nVoorbeeld van een neerslagraster uit het IRC.",
-    "crumbs": [
-      "Bronnen",
-      "Voorbereiding",
-      "Gegevensbronnen"
-    ]
-  },
-  {
-    "objectID": "aanbevelingen.html",
-    "href": "aanbevelingen.html",
-    "title": "Aanbevelingen",
-    "section": "",
-    "text": "Aanbevelingen\nHet draaien van een stochastenanalyse met het CM-model als zodanig was een bijzonder taaie klus. In de eerste plaats vooral vanwege het gesloten karakter van dit model. Voor een hydroloog is dit model feitelijk een ‘black box’ waaraan via .mat-bestanden tijdreeksen moeten worden opgedrukt, in de hoop dat de juiste tijdreeks met de juiste eenheden en de juiste tijdstapgrootte zijn opgegeven in de juiste kolom van het invoerbestand. Sumaqua zou modelschematisaties van dit type een enorme boost kunnen geven als de modelinput en -output opgenomen zouden worden in een goede GUI (Graphical User Interface) met topografische kaart en daarop geplot de gebieden/polygonen die in het model vertegenwoordigd zijn.\nEen ander verbeterpunt van het CM-model van ’s-Hertogenbosch betreft het feit dat de initiële volumes van polygonen 22 en 24 niet nul mogen zijn. Dit ontdekten we gedurende het project omdat het model bij die instellingen crashte.\nTot slot zou het CM-model een heel stuk gebruiksvriendelijker worden voor stochastenanalyses als de input voor beekinstroom en lateralen (Q) zou worden losgetrokken van de input voor waterhoogtes (H). Doordat de beekinstroom en de maaswaterstanden in één en hetzelfde invoerbestand moesten worden weggeschreven waren we gedwongen om al op voorhand alle combinaties te bouwen van de bijbehorende stochasten. Anders gezegd: De Nieuwe Stochastentool kon niet goed tot zijn recht komen omdat het niet de kans kreeg zelf de combinaties van beekinstroom en maaswaterstand op te stellen.\nDe simulaties zonder laterale instromingen resulteren in sommige locaties, zelfs ver bovenstrooms in de Beneden-Aa in hogere waterstanden dan met laterale instromingen. Dit is volkomen contra-intuïtief. Wij hebben daarom meermaals de invoer gecheckt maar blijven op deze resultaten uitkomen. Aanbeveling is daarom dat Waterschap Aa en Maas nader onderzoekt wat de oorzaak hiervan is.\nTot slot hebben we, op last van de opdrachtgever, in dit project de aanname gedaan dat de stochasten maaswaterstand en beekinstroom statistisch onafhankelijk zijn. Deze aanname is in dit project acceptabel omdat het hier niet ging om de absolute overschrijdingswaterstanden maar om een gevoeligheidsanalyse. Voor toekomstige daadwerkelijke stochastenanalyses is het echter raadzaam om expliciet rekening te houden met de afhankelijkheid tussen beide stochasten.\nOp de beoordelingslocatie ADM Bossche Broek is het effect van het wel of niet meenemen van laterale instromingen of een verhoogde initiële vullingsgraad van het model verwaarloosbaar. Het effect op de overschrijdingswaterstanden ligt in de orde grootte van slechts enkele millimeters.\nEen nuance hierbij is op zijn plaats: in geen van de simulaties is het peil waarboven het bergingsgebied Bossche Broek wordt ingezet, 4.90 m + NAP, gehaald.\nLocaties waar het effect wél significant is, betreffen vooral de knopen in de polder achter het Segersgemaal. Bij ontbreken van laterale instromingen vinden in de polder geen peilstijgingen plaats en treedt het gemaal niet in werking."
-  },
-  {
-    "objectID": "Blokkendoos/inleiding.html",
-    "href": "Blokkendoos/inleiding.html",
-    "title": "Inleiding",
-    "section": "",
-    "text": "Inleiding\nDe term ‘blokkendoos’ gebruiken we om het de hier vervaardigde verzameling aan softwareproducten mee aan te duiden. Het doel van deze software is om snel inzicht te geven in de bijdrage van maatregelen uit de trits ‘Vasthouden, Bergen, Afvoeren, Beschermen’ aan het verminderen van wateroverlast, uitgedrukt in m3.\nDe eerste versie van de Blokkendoos is een Excel-document, vervaardigd door Hans Hakvoort. Door middel van lookup-tables wordt per gebied en per maatregel ingeschat welk effect een implementatie zou hebben op een afvoerpiek. Door alle maatregelen maal het oppervlak waarover ze worden toegepast bij elkaar op te tellen kan worden ingeschat welk effect het pakket heeft.\n\n\nDe eerste versie van de blokkendoos in Excel.\n\n\n\n\n\nBlokkendoos in Excel (klik voor groot)\n\n\n\n\n\n\n\nBlokkendoos in Excel (klik voor groot)",
-    "crumbs": [
-      "Bronnen",
-      "Blokkendoos",
-      "Inleiding"
+      "Bronnen"
     ]
   },
   {
@@ -135,6 +70,30 @@
     ]
   },
   {
+    "objectID": "Data/verwerking.html#aantal-panden-en-dakoppervlak-per-stroomgebied",
+    "href": "Data/verwerking.html#aantal-panden-en-dakoppervlak-per-stroomgebied",
+    "title": "Gegevensverwerking",
+    "section": "",
+    "text": "Om het effect maatregelen zoals het aanleggen van regentonnen goed te kunnen kwantificeren is het nodig om te weten hoeveel aansluitingen er binnen ieder stroomgebied gerealiseerd kunnen worden. Dit vraagt om informatie over het aantal panden per stroomgebied en het daaraan verbonden dakoppervlak.\nNet als andere stroomgebiedsanalyses ontwikkelen we hiervoor een Python-script. Dit script gebruikt OpenStreetMap als basis en telt binnen ieder stroomgebied het aantal panden op. Ook sommeert het het dakoppervlak van alle inliggende panden.",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensverwerking"
+    ]
+  },
+  {
+    "objectID": "Data/verwerking.html#aantal-regenwaterbuffers",
+    "href": "Data/verwerking.html#aantal-regenwaterbuffers",
+    "title": "Gegevensverwerking",
+    "section": "",
+    "text": "Waterschap Limburg beheert een zeer groot aantal regenwaterbuffers. Deze buffers hebben een dempend effect op de beekafvoeren en een goed inzicht in de hoeveelheid regenwaterbuffers in een stroomgebied en de daarmee gemoeide bergingscapaciteit is essentieel om de effecten op de beekafvoer in beeld te brengen.\nWe ontwikkelen een Python-script om per knelpunt-stroomgebied alle inliggende regenwaterbuffers op te tellen en het daarmee gemoeide bergingsvolume op te tellen.",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensverwerking"
+    ]
+  },
+  {
     "objectID": "Data/verwerking.html#neerslagreeksen-per-knelpunt-stroomgebied",
     "href": "Data/verwerking.html#neerslagreeksen-per-knelpunt-stroomgebied",
     "title": "Gegevensverwerking",
@@ -147,37 +106,46 @@
     ]
   },
   {
-    "objectID": "literatuur.html",
-    "href": "literatuur.html",
-    "title": "Bronnen",
+    "objectID": "Data/verwerking.html#neerslagrasters",
+    "href": "Data/verwerking.html#neerslagrasters",
+    "title": "Gegevensverwerking",
     "section": "",
-    "text": "Literatuur\n\n\nSoftware",
+    "text": "Ten behoeve van de modellering met LISEM is een langjarige tijdreeks met neerslagrasters gevraagd. Om die te verkrijgen zetten we het programma WIWBRASTER2ASCII.EXE in (een executable van Meteobase). Hierbij geven we het ruimtelijke bereik van de stroomgebieden mee.\n\n\n\n\nX\nY\n\n\n\n\nMin\n177940\n295741\n\n\nMax\n207241\n325355\n\n\n\n\n\n\nResultaat van Catchment Delineation in Python.\nInventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.",
     "crumbs": [
-      "Bronnen"
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensverwerking"
     ]
   },
   {
-    "objectID": "Responsanalyse/inleiding.html",
-    "href": "Responsanalyse/inleiding.html",
+    "objectID": "Blokkendoos/inleiding.html",
+    "href": "Blokkendoos/inleiding.html",
     "title": "Inleiding",
     "section": "",
-    "text": "Een van de onderzoeksvragen uit dit project is hoe snel de afvoer reageert op neerslag: de neerslag-afvoerrespons. In dit hoofdstuk werken we die onderzoeksvraag uit.\n\n\nVoor ieder knelpunt-stroomgebied vragen we een langjarige neerslagreeks op van de WIWB-API. Dit proces staat uitgelegd in het hoofdstuk Gegevensbronnen. Daarnaast downloaden we een langjarige reeks van gemeten afvoeren voor de diverse meetlocaties langs de Geul.",
+    "text": "Inleiding\nDe term ‘blokkendoos’ gebruiken we om het de hier vervaardigde verzameling aan softwareproducten mee aan te duiden. Het doel van deze software is om snel inzicht te geven in de bijdrage van maatregelen uit de trits ‘Vasthouden, Bergen, Afvoeren, Beschermen’ aan het verminderen van wateroverlast, uitgedrukt in m3.\nDe eerste versie van de Blokkendoos is een Excel-document, vervaardigd door Hans Hakvoort. Door middel van lookup-tables wordt per gebied en per maatregel ingeschat welk effect een implementatie zou hebben op een afvoerpiek. Door alle maatregelen maal het oppervlak waarover ze worden toegepast bij elkaar op te tellen kan worden ingeschat welk effect het pakket heeft.\n\n\nDe eerste versie van de blokkendoos in Excel.\n\n\n\n\n\nBlokkendoos in Excel (klik voor groot)\n\n\n\n\n\n\n\nBlokkendoos in Excel (klik voor groot)",
     "crumbs": [
       "Bronnen",
-      "Analyse gebiedsrespons",
+      "Blokkendoos",
       "Inleiding"
     ]
   },
   {
-    "objectID": "Responsanalyse/inleiding.html#werkwijze",
-    "href": "Responsanalyse/inleiding.html#werkwijze",
-    "title": "Inleiding",
+    "objectID": "aanbevelingen.html",
+    "href": "aanbevelingen.html",
+    "title": "Aanbevelingen",
     "section": "",
-    "text": "Voor ieder knelpunt-stroomgebied vragen we een langjarige neerslagreeks op van de WIWB-API. Dit proces staat uitgelegd in het hoofdstuk Gegevensbronnen. Daarnaast downloaden we een langjarige reeks van gemeten afvoeren voor de diverse meetlocaties langs de Geul.",
+    "text": "Aanbevelingen\nHet draaien van een stochastenanalyse met het CM-model als zodanig was een bijzonder taaie klus. In de eerste plaats vooral vanwege het gesloten karakter van dit model. Voor een hydroloog is dit model feitelijk een ‘black box’ waaraan via .mat-bestanden tijdreeksen moeten worden opgedrukt, in de hoop dat de juiste tijdreeks met de juiste eenheden en de juiste tijdstapgrootte zijn opgegeven in de juiste kolom van het invoerbestand. Sumaqua zou modelschematisaties van dit type een enorme boost kunnen geven als de modelinput en -output opgenomen zouden worden in een goede GUI (Graphical User Interface) met topografische kaart en daarop geplot de gebieden/polygonen die in het model vertegenwoordigd zijn.\nEen ander verbeterpunt van het CM-model van ’s-Hertogenbosch betreft het feit dat de initiële volumes van polygonen 22 en 24 niet nul mogen zijn. Dit ontdekten we gedurende het project omdat het model bij die instellingen crashte.\nTot slot zou het CM-model een heel stuk gebruiksvriendelijker worden voor stochastenanalyses als de input voor beekinstroom en lateralen (Q) zou worden losgetrokken van de input voor waterhoogtes (H). Doordat de beekinstroom en de maaswaterstanden in één en hetzelfde invoerbestand moesten worden weggeschreven waren we gedwongen om al op voorhand alle combinaties te bouwen van de bijbehorende stochasten. Anders gezegd: De Nieuwe Stochastentool kon niet goed tot zijn recht komen omdat het niet de kans kreeg zelf de combinaties van beekinstroom en maaswaterstand op te stellen.\nDe simulaties zonder laterale instromingen resulteren in sommige locaties, zelfs ver bovenstrooms in de Beneden-Aa in hogere waterstanden dan met laterale instromingen. Dit is volkomen contra-intuïtief. Wij hebben daarom meermaals de invoer gecheckt maar blijven op deze resultaten uitkomen. Aanbeveling is daarom dat Waterschap Aa en Maas nader onderzoekt wat de oorzaak hiervan is.\nTot slot hebben we, op last van de opdrachtgever, in dit project de aanname gedaan dat de stochasten maaswaterstand en beekinstroom statistisch onafhankelijk zijn. Deze aanname is in dit project acceptabel omdat het hier niet ging om de absolute overschrijdingswaterstanden maar om een gevoeligheidsanalyse. Voor toekomstige daadwerkelijke stochastenanalyses is het echter raadzaam om expliciet rekening te houden met de afhankelijkheid tussen beide stochasten.\nOp de beoordelingslocatie ADM Bossche Broek is het effect van het wel of niet meenemen van laterale instromingen of een verhoogde initiële vullingsgraad van het model verwaarloosbaar. Het effect op de overschrijdingswaterstanden ligt in de orde grootte van slechts enkele millimeters.\nEen nuance hierbij is op zijn plaats: in geen van de simulaties is het peil waarboven het bergingsgebied Bossche Broek wordt ingezet, 4.90 m + NAP, gehaald.\nLocaties waar het effect wél significant is, betreffen vooral de knopen in de polder achter het Segersgemaal. Bij ontbreken van laterale instromingen vinden in de polder geen peilstijgingen plaats en treedt het gemaal niet in werking."
+  },
+  {
+    "objectID": "Data/gegevensbronnen.html",
+    "href": "Data/gegevensbronnen.html",
+    "title": "Gegevensbronnen",
+    "section": "",
+    "text": "Hier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.\n\n\n\n\nHoogterasters vormen een van de voornaamste gegevensbronnen voor de Blokkendoos. Echter omdat de strooomgebieden grensoverschrijdend zijn gebruiken we het Nederlandse AHN alleen daar waar een hoge resolutie gevraagd wordt. Zo maken we voor de stroomgebiedsbepaling gebruik van een grensoverschrijdend raster.\n\nDoel\n\nBepalen van de hellingshoek van het maaiveld\n\nVerkrijgen\n\nVia PDOK kan hoogtedata voor Nederland worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\n\n\n\n\n\n\n\n\n\nOm de grensoverschrijdende stroomgebieden te kunnen identificeren gebruiken we het EU-DEM, vervaardigd in het Copernicus-programma. De rastercellen zijn ca. 20 bij 31m groot.\n\nDoel\n\nVoor ieder knelpunt het stroomgebied in kaart brengen\n\nVerkrijgen\n\nhet EU-DEM kan in zijn geheel gedownload worden van deze website.\n\n\n\n\n\n\n\nEuropees hoogtemodel EU-DEM (klik voor groot)\n\n\n\n\n\n\n\n\n\nOm hydraulische knelpunten op te kunnen lossen met de beoogde maatregelen is uiteraard een lijst met bekende knelpunten te hebben.\n\nDoelen\n\n\nHet stroomgebied van ieder knelpunt in kaart brengen zodat de haalbaarheid van maatregelen kan worden onderzocht.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke bekende knelpunten worden betrokken bij de verantwoordelijke waterbeheerder: Waterschap of Gemeente. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp).\n\n\n\n\n\n\n\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\n\n\n\n\n\n\n\n\n\nOm een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).\n\nDoelen\n\n\nRuimtelijk afbakenen van het gebied waarbinnen analyses en berekeningen moeten worden gedaan.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoordelijke autoriteit: Waterschap, Gemeente of Provincie. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp), Geopackage (.gpkg) of GeoJSON (.geojson).\n\n\n\n\n\n\n\nBeheergebied Waterschap Limburg (klik voor groot)\n\n\n\n\n\n\n\nHet aandeel stedelijk gebied is een belangrijke indicator van de respons van een stroomgebied op hevige neerslag. Als bronbestand hiervoor gebruiken we de SOPP-kaart (Stedelijk Oppervlak) zoals gebruikt in het regionale grondwatermodel Ibrahym. Waterschap Limburg was zo vriendelijk deze kaart te verschaffen.\n\n\nOm de kaart te kunnen omwerken naar een bruikbaar inputformaat voor de analyse schrijven we een Python-script wat het iMod-raster converteert naar GeoTIFF.\n\nDoelen\n\n\nBepalen van de mate van verstedelijking van ieder knelpunt-stroomgebied\n\n\nVerkrijgen\n\nOntvangen van Waterschap Limburg in de vorm van de kaart met stedelijk oppervlak (SOPP.IDF) en door ons geconverteerd naar .TIF (GeoTiff).\n\n\n\n\n\n\n\nStedelijk oppervlak per 25x25m rastercel.\n\n\n\n\n\n\n\n\n\n\nOpmerking\n\n\n\nWe merken op dat de cellen een maximaal stedelijk oppervlak van 312.5 m2 hebben. Dit is slechts de helft van het theoretische maximum van 625 m2. Een keuze door de grondwatermodelleurs van Ibrahym ligt hieraan ten grondslag. Voor dit project beschouwen we een multiplier van maximaal 2 als een extra variabele waaraan nog gedraaid kan worden.\n\n\n\n\n\nOmdat de stroomgebieden behorende bij de knelpunten over de landsgrenzen reiken is het niet mogelijk om bij Meteobase de neerslagreeksen te downloaden. Wat echter wel mogelijk is, is met een script rechtstreeks de WIWB-API bevragen. Dit kan met Python, maar in ons geval werken we met de programma’s die achter Meteobase draaien: WIWBRASTER2ASCII.EXE en WIWBRASTERBYPOLY.EXE. De broncode hiervan is te vinden op de repository van Meteobase.\n\nWIWBRASTER2ASCII.EXE\n\nBevraagt de rasters van WIWB en schrijft ze weg in RD-projectie, in ASCII formaat (.ASC).\n\nWIWBRASTERBYPOLY.EXE\n\nBevraagt de rasters van WIWB en aggregeert de neerslagsom per polygoon van een opgegeven shapefile. Schrijft het resultaat vervolgens als tijdreeks per polygoon naar een CSV-bestand.\n\n\n\n\nDe recente IRC-neerslagrasters (Internationaal RadarComposiet) van KNMI reiken voldoende ver over de landsgrenzen.\n\nDoelen\n\n\nLangjarige reeksen met gebiedsneerslag per knelpunt afleiden.\n\n\nVerkrijgen\n\nDoor rechtstreeks de API van WIWB (Weer Informatie voor het Waterbeheer) te bevragen.\n\n\n\n\n\n\n\nVoorbeeld van een neerslagraster uit het IRC.\n\n\n\n\n\n\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\nEuropees hoogtemodel EU-DEM (klik voor groot)\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\nBeheergebied Waterschap Limburg (klik voor groot)\nStedelijk oppervlak per 25x25m rastercel.\nVoorbeeld van een neerslagraster uit het IRC.",
     "crumbs": [
       "Bronnen",
-      "Analyse gebiedsrespons",
-      "Inleiding"
+      "Voorbereiding",
+      "Gegevensbronnen"
     ]
   },
   {
@@ -253,39 +221,71 @@
     ]
   },
   {
-    "objectID": "Data/verwerking.html#aantal-panden-en-dakoppervlak-per-stroomgebied",
-    "href": "Data/verwerking.html#aantal-panden-en-dakoppervlak-per-stroomgebied",
-    "title": "Gegevensverwerking",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
     "section": "",
-    "text": "Om het effect maatregelen zoals het aanleggen van regentonnen goed te kunnen kwantificeren is het nodig om te weten hoeveel aansluitingen er binnen ieder stroomgebied gerealiseerd kunnen worden. Dit vraagt om informatie over het aantal panden per stroomgebied en het daaraan verbonden dakoppervlak.\nNet als andere stroomgebiedsanalyses ontwikkelen we hiervoor een Python-script. Dit script gebruikt OpenStreetMap als basis en telt binnen ieder stroomgebied het aantal panden op. Ook sommeert het het dakoppervlak van alle inliggende panden.",
+    "text": "Welkom bij de Blokkendoos van Waterveiligheid en Ruimte Limburg (WRL). De repository die wij hier beschrijven geeft toegang tot softwareproducten waarmee u op een snelle en eenvoudige manier het effect van maatregelen in het watersysteem inschatten op het optreden van hoogwaters.\n\n\n\n\nWerkwijze\nDe Blokkendoos",
     "crumbs": [
       "Bronnen",
-      "Voorbereiding",
-      "Gegevensverwerking"
+      "Welkom"
     ]
   },
   {
-    "objectID": "Data/verwerking.html#aantal-regenwaterbuffers",
-    "href": "Data/verwerking.html#aantal-regenwaterbuffers",
-    "title": "Gegevensverwerking",
+    "objectID": "index.html#over-deze-repository",
+    "href": "index.html#over-deze-repository",
+    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
     "section": "",
-    "text": "Waterschap Limburg beheert een zeer groot aantal regenwaterbuffers. Deze buffers hebben een dempend effect op de beekafvoeren en een goed inzicht in de hoeveelheid regenwaterbuffers in een stroomgebied en de daarmee gemoeide bergingscapaciteit is essentieel om de effecten op de beekafvoer in beeld te brengen.\nWe ontwikkelen een Python-script om per knelpunt-stroomgebied alle inliggende regenwaterbuffers op te tellen en het daarmee gemoeide bergingsvolume op te tellen.",
+    "text": "Welkom bij de Blokkendoos van Waterveiligheid en Ruimte Limburg (WRL). De repository die wij hier beschrijven geeft toegang tot softwareproducten waarmee u op een snelle en eenvoudige manier het effect van maatregelen in het watersysteem inschatten op het optreden van hoogwaters.",
     "crumbs": [
       "Bronnen",
-      "Voorbereiding",
-      "Gegevensverwerking"
+      "Welkom"
     ]
   },
   {
-    "objectID": "Data/verwerking.html#neerslagrasters",
-    "href": "Data/verwerking.html#neerslagrasters",
-    "title": "Gegevensverwerking",
+    "objectID": "index.html#snelle-links",
+    "href": "index.html#snelle-links",
+    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
     "section": "",
-    "text": "Ten behoeve van de modellering met LISEM is een langjarige tijdreeks met neerslagrasters gevraagd. Om die te verkrijgen zetten we het programma WIWBRASTER2ASCII.EXE in (een executable van Meteobase). Hierbij geven we het ruimtelijke bereik van de stroomgebieden mee.\n\n\n\n\nX\nY\n\n\n\n\nMin\n177940\n295741\n\n\nMax\n207241\n325355\n\n\n\n\n\n\nResultaat van Catchment Delineation in Python.\nInventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.",
+    "text": "Werkwijze\nDe Blokkendoos",
     "crumbs": [
       "Bronnen",
-      "Voorbereiding",
-      "Gegevensverwerking"
+      "Welkom"
+    ]
+  },
+  {
+    "objectID": "index.html#aanleiding-en-projectkader",
+    "href": "index.html#aanleiding-en-projectkader",
+    "title": "Blokkendoos Waterveiligheid en Ruimte Limburg",
+    "section": "Aanleiding en projectkader",
+    "text": "Aanleiding en projectkader\nNa de extreme neerslag in de zomer van 2021 is het programma Waterveiligheid en Ruimte Limburg (WRL) opgestart. Dit programma bestaat uit de volgende drie pijlers:\n\nhet vergroten van de fysieke robuustheid van het watersysteem\nhet verankeren van water en bodem sturend als principe in de ruimtelijke ordening\nhet vergroten van zelfredzaamheid van inwoners.\n\nDeze repository bevat software ter ondersteuning van de eerste pijler. Voor deze pijler classificeert WRL potentiële maatregelen, onderscheiden naar de bekende typen:\n\nVasthouden\nBergen\nAfvoeren\nBeschermen.\n\nOm een eerste inschatting te maken van de effecten van maatregelen op bekende wateroverlastknelpunten hebben wij in opdracht van WRL deze ‘blokkendoos’ opgezet. Deze software geeft snel inzicht te krijgen in de bijdrage van maatregelen aan het verminderen van wateroverlast, uitgedrukt in m3.\nIn een latere fase van het overkoepelende project worden maatregelenpakketten samengesteld die in een rekenmodel integraal op effectiviteit beoordeeld worden. De blokkendoos zal hieraan kunnen bijdragen.\n\n\n\n\n\n\nOpdrachtgever\n\n\n\nDeze repository en alle producten erin zijn vervaardigd in opdracht van Waterveiligheid en Ruimte Limburg.",
+    "crumbs": [
+      "Bronnen",
+      "Welkom"
+    ]
+  },
+  {
+    "objectID": "Responsanalyse/inleiding.html",
+    "href": "Responsanalyse/inleiding.html",
+    "title": "Inleiding",
+    "section": "",
+    "text": "Een van de onderzoeksvragen uit dit project is hoe snel de afvoer reageert op neerslag: de neerslag-afvoerrespons. In dit hoofdstuk werken we die onderzoeksvraag uit.\n\n\nVoor ieder knelpunt-stroomgebied vragen we een langjarige neerslagreeks op van de WIWB-API. Dit proces staat uitgelegd in het hoofdstuk Gegevensbronnen. Daarnaast downloaden we een langjarige reeks van gemeten afvoeren voor de diverse meetlocaties langs de Geul.",
+    "crumbs": [
+      "Bronnen",
+      "Analyse gebiedsrespons",
+      "Inleiding"
+    ]
+  },
+  {
+    "objectID": "Responsanalyse/inleiding.html#werkwijze",
+    "href": "Responsanalyse/inleiding.html#werkwijze",
+    "title": "Inleiding",
+    "section": "",
+    "text": "Voor ieder knelpunt-stroomgebied vragen we een langjarige neerslagreeks op van de WIWB-API. Dit proces staat uitgelegd in het hoofdstuk Gegevensbronnen. Daarnaast downloaden we een langjarige reeks van gemeten afvoeren voor de diverse meetlocaties langs de Geul.",
+    "crumbs": [
+      "Bronnen",
+      "Analyse gebiedsrespons",
+      "Inleiding"
     ]
   }
 ]
