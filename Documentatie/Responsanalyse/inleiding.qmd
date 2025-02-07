@@ -1,0 +1,21 @@
+# Inleiding
+
+Een van de onderzoeksvragen uit dit project is hoe snel de afvoer reageert op neerslag: de neerslag-afvoerrespons.
+In dit hoofdstuk werken we die onderzoeksvraag uit.
+
+## Werkwijze
+
+Voor ieder knelpunt-stroomgebied vragen we een langjarige neerslagreeks op van de WIWB-API. Dit proces staat uitgelegd in het hoofdstuk [Gegevensbronnen](../Data/gegevensbronnen.qmd). Daarnaast downloaden we een langjarige reeks van gemeten afvoeren voor de diverse meetlocaties langs de Geul.
+
+
+::: {.grid}
+::: {.g-col-6}
+:::
+::: {.g-col-6}
+:::
+:::
+
+
+
+
+

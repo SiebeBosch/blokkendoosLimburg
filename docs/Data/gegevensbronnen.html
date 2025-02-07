@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../custom.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -207,6 +207,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Analyse gebiedsrespons</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Schakel sectie">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Responsanalyse/inleiding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inleiding</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../literatuur.html" class="sidebar-item-text sidebar-link">
@@ -218,7 +235,25 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Op deze pagina</h2>
+   
+  <ul>
+  <li><a href="#gegevensbronnen" id="toc-gegevensbronnen" class="nav-link active" data-scroll-target="#gegevensbronnen">Gegevensbronnen</a>
+  <ul class="collapse">
+  <li><a href="#hoogtedata-nederland" id="toc-hoogtedata-nederland" class="nav-link" data-scroll-target="#hoogtedata-nederland">Hoogtedata Nederland</a></li>
+  <li><a href="#hoogtedata-europa" id="toc-hoogtedata-europa" class="nav-link" data-scroll-target="#hoogtedata-europa">Hoogtedata Europa</a></li>
+  <li><a href="#knelpunten" id="toc-knelpunten" class="nav-link" data-scroll-target="#knelpunten">Knelpunten</a></li>
+  <li><a href="#ruimtelijke-begrenzing" id="toc-ruimtelijke-begrenzing" class="nav-link" data-scroll-target="#ruimtelijke-begrenzing">Ruimtelijke begrenzing</a></li>
+  <li><a href="#stedelijk-oppervlak" id="toc-stedelijk-oppervlak" class="nav-link" data-scroll-target="#stedelijk-oppervlak">Stedelijk oppervlak</a></li>
+  <li><a href="#neerslagrasters" id="toc-neerslagrasters" class="nav-link" data-scroll-target="#neerslagrasters">Neerslagrasters</a></li>
+  <li><a href="#aantal-woningen" id="toc-aantal-woningen" class="nav-link" data-scroll-target="#aantal-woningen">Aantal woningen</a></li>
+  <li><a href="#regenwaterbuffers" id="toc-regenwaterbuffers" class="nav-link" data-scroll-target="#regenwaterbuffers">Regenwaterbuffers</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -247,15 +282,15 @@ Via PDOK kan hoogtedata voor Nederland worden verkregen. Voor het GIS-programma 
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/dtm_zuidelijk_limburg.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Hoogtekaart Zuidelijk Limburg (klik voor groot)"><img src="../static/img/dtm_zuidelijk_limburg.png" class="img-fluid figure-img" alt="Hoogtekaart Zuidelijk Limburg (klik voor groot)"></a></p>
+<p><a href="../static/img/dtm_zuidelijk_limburg.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Hoogtekaart Zuidelijk Limburg (klik voor groot)"><img src="../static/img/dtm_zuidelijk_limburg.png" class="img-fluid figure-img" alt="Hoogtekaart Zuidelijk Limburg (klik voor groot)"></a></p>
 <figcaption>Hoogtekaart Zuidelijk Limburg (klik voor groot)</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="hoogtedata-europa" class="level3">
-<h3 class="anchored" data-anchor-id="hoogtedata-europa">Hoogtedata Europa</h3>
+<section id="hoogtedata-europa" class="level2">
+<h2 class="anchored" data-anchor-id="hoogtedata-europa">Hoogtedata Europa</h2>
 <div class="grid">
 <div class="g-col-6">
 <p>Om de grensoverschrijdende stroomgebieden te kunnen identificeren gebruiken we het <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/digital-elevation-model/eu-dem#DD">EU-DEM</a>, vervaardigd in het Copernicus-programma. De rastercellen zijn ca. 20 bij 31m groot.</p>
@@ -273,15 +308,15 @@ het EU-DEM kan in zijn geheel gedownload worden van <a href="https://ec.europa.e
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/EU-DEM.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Europees hoogtemodel EU-DEM (klik voor groot)"><img src="../static/img/EU-DEM.png" class="img-fluid figure-img" alt="Europees hoogtemodel EU-DEM (klik voor groot)"></a></p>
+<p><a href="../static/img/EU-DEM.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Europees hoogtemodel EU-DEM (klik voor groot)"><img src="../static/img/EU-DEM.png" class="img-fluid figure-img" alt="Europees hoogtemodel EU-DEM (klik voor groot)"></a></p>
 <figcaption>Europees hoogtemodel EU-DEM (klik voor groot)</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="knelpunten" class="level3">
-<h3 class="anchored" data-anchor-id="knelpunten">Knelpunten</h3>
+<section id="knelpunten" class="level2">
+<h2 class="anchored" data-anchor-id="knelpunten">Knelpunten</h2>
 <div class="grid">
 <div class="g-col-6">
 <p>Om hydraulische knelpunten op te kunnen lossen met de beoogde maatregelen is uiteraard een lijst met bekende knelpunten te hebben.</p>
@@ -301,15 +336,15 @@ Doorgaans moeten dergelijke bekende knelpunten worden betrokken bij de verantwoo
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/knelpunten.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)"><img src="../static/img/knelpunten.png" class="img-fluid figure-img" alt="Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)"></a></p>
+<p><a href="../static/img/knelpunten.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)"><img src="../static/img/knelpunten.png" class="img-fluid figure-img" alt="Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)"></a></p>
 <figcaption>Hydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="ruimtelijke-begrenzing" class="level3">
-<h3 class="anchored" data-anchor-id="ruimtelijke-begrenzing">Ruimtelijke begrenzing</h3>
+<section id="ruimtelijke-begrenzing" class="level2">
+<h2 class="anchored" data-anchor-id="ruimtelijke-begrenzing">Ruimtelijke begrenzing</h2>
 <div class="grid">
 <div class="g-col-6">
 <p>Om een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).</p>
@@ -329,15 +364,15 @@ Doorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoo
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/beheergebied_WL.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Beheergebied Waterschap Limburg (klik voor groot)"><img src="../static/img/beheergebied_WL.png" class="img-fluid figure-img" alt="Beheergebied Waterschap Limburg (klik voor groot)"></a></p>
+<p><a href="../static/img/beheergebied_WL.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Beheergebied Waterschap Limburg (klik voor groot)"><img src="../static/img/beheergebied_WL.png" class="img-fluid figure-img" alt="Beheergebied Waterschap Limburg (klik voor groot)"></a></p>
 <figcaption>Beheergebied Waterschap Limburg (klik voor groot)</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="stedelijk-oppervlak" class="level3">
-<h3 class="anchored" data-anchor-id="stedelijk-oppervlak">Stedelijk oppervlak</h3>
+<section id="stedelijk-oppervlak" class="level2">
+<h2 class="anchored" data-anchor-id="stedelijk-oppervlak">Stedelijk oppervlak</h2>
 <p>Het aandeel stedelijk gebied is een belangrijke indicator van de respons van een stroomgebied op hevige neerslag. Als bronbestand hiervoor gebruiken we de SOPP-kaart (Stedelijk Oppervlak) zoals gebruikt in het regionale grondwatermodel Ibrahym. Waterschap Limburg was zo vriendelijk deze kaart te verschaffen.</p>
 <div class="grid">
 <div class="g-col-6">
@@ -358,7 +393,7 @@ Ontvangen van Waterschap Limburg in de vorm van de kaart met stedelijk oppervlak
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/stedelijk_oppervlak.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="Stedelijk oppervlak per 25x25m rastercel."><img src="../static/img/stedelijk_oppervlak.png" class="img-fluid figure-img" alt="Stedelijk oppervlak per 25x25m rastercel."></a></p>
+<p><a href="../static/img/stedelijk_oppervlak.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="Stedelijk oppervlak per 25x25m rastercel."><img src="../static/img/stedelijk_oppervlak.png" class="img-fluid figure-img" alt="Stedelijk oppervlak per 25x25m rastercel."></a></p>
 <figcaption>Stedelijk oppervlak per 25x25m rastercel.</figcaption>
 </figure>
 </div>
@@ -378,8 +413,8 @@ Opmerking
 </div>
 </div>
 </section>
-<section id="neerslagrasters" class="level3">
-<h3 class="anchored" data-anchor-id="neerslagrasters">Neerslagrasters</h3>
+<section id="neerslagrasters" class="level2">
+<h2 class="anchored" data-anchor-id="neerslagrasters">Neerslagrasters</h2>
 <p>Omdat de stroomgebieden behorende bij de knelpunten over de landsgrenzen reiken is het niet mogelijk om bij Meteobase de neerslagreeksen te downloaden. Wat echter wel mogelijk is, is met een script rechtstreeks de WIWB-API bevragen. Dit kan met Python, maar in ons geval werken we met de programma’s die achter Meteobase draaien: WIWBRASTER2ASCII.EXE en WIWBRASTERBYPOLY.EXE. De broncode hiervan is te vinden op de repository van <a href="https://github.com/SiebeBosch/Meteobase">Meteobase</a>.</p>
 <dl>
 <dt>WIWBRASTER2ASCII.EXE</dt>
@@ -410,12 +445,18 @@ Door rechtstreeks de API van WIWB (Weer Informatie voor het Waterbeheer) te bevr
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../static/img/IRC.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Voorbeeld van een neerslagraster uit het IRC."><img src="../static/img/IRC.png" class="img-fluid figure-img" alt="Voorbeeld van een neerslagraster uit het IRC."></a></p>
+<p><a href="../static/img/IRC.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Voorbeeld van een neerslagraster uit het IRC."><img src="../static/img/IRC.png" class="img-fluid figure-img" alt="Voorbeeld van een neerslagraster uit het IRC."></a></p>
 <figcaption>Voorbeeld van een neerslagraster uit het IRC.</figcaption>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="aantal-woningen" class="level2">
+<h2 class="anchored" data-anchor-id="aantal-woningen">Aantal woningen</h2>
+</section>
+<section id="regenwaterbuffers" class="level2">
+<h2 class="anchored" data-anchor-id="regenwaterbuffers">Regenwaterbuffers</h2>
 
 
 <div class="hidden" aria-hidden="true">
@@ -830,7 +871,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"fade","descPosition":"right","loop":false,"closeEffect":"fade"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"fade","selector":".lightbox","openEffect":"fade","descPosition":"right"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -72,7 +72,7 @@
     "href": "Data/gegevensbronnen.html",
     "title": "Gegevensbronnen",
     "section": "",
-    "text": "Gegevensbronnen\nHier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.\n\nHoogtedata Nederland\n\n\nHoogterasters vormen een van de voornaamste gegevensbronnen voor de Blokkendoos. Echter omdat de strooomgebieden grensoverschrijdend zijn gebruiken we het Nederlandse AHN alleen daar waar een hoge resolutie gevraagd wordt. Zo maken we voor de stroomgebiedsbepaling gebruik van een grensoverschrijdend raster.\n\nDoel\n\nBepalen van de hellingshoek van het maaiveld\n\nVerkrijgen\n\nVia PDOK kan hoogtedata voor Nederland worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\n\n\n\n\n\n\nHoogtedata Europa\n\n\nOm de grensoverschrijdende stroomgebieden te kunnen identificeren gebruiken we het EU-DEM, vervaardigd in het Copernicus-programma. De rastercellen zijn ca. 20 bij 31m groot.\n\nDoel\n\nVoor ieder knelpunt het stroomgebied in kaart brengen\n\nVerkrijgen\n\nhet EU-DEM kan in zijn geheel gedownload worden van deze website.\n\n\n\n\n\n\n\nEuropees hoogtemodel EU-DEM (klik voor groot)\n\n\n\n\n\n\nKnelpunten\n\n\nOm hydraulische knelpunten op te kunnen lossen met de beoogde maatregelen is uiteraard een lijst met bekende knelpunten te hebben.\n\nDoelen\n\n\nHet stroomgebied van ieder knelpunt in kaart brengen zodat de haalbaarheid van maatregelen kan worden onderzocht.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke bekende knelpunten worden betrokken bij de verantwoordelijke waterbeheerder: Waterschap of Gemeente. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp).\n\n\n\n\n\n\n\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\n\n\n\n\n\n\nRuimtelijke begrenzing\n\n\nOm een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).\n\nDoelen\n\n\nRuimtelijk afbakenen van het gebied waarbinnen analyses en berekeningen moeten worden gedaan.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoordelijke autoriteit: Waterschap, Gemeente of Provincie. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp), Geopackage (.gpkg) of GeoJSON (.geojson).\n\n\n\n\n\n\n\nBeheergebied Waterschap Limburg (klik voor groot)\n\n\n\n\n\n\nStedelijk oppervlak\nHet aandeel stedelijk gebied is een belangrijke indicator van de respons van een stroomgebied op hevige neerslag. Als bronbestand hiervoor gebruiken we de SOPP-kaart (Stedelijk Oppervlak) zoals gebruikt in het regionale grondwatermodel Ibrahym. Waterschap Limburg was zo vriendelijk deze kaart te verschaffen.\n\n\nOm de kaart te kunnen omwerken naar een bruikbaar inputformaat voor de analyse schrijven we een Python-script wat het iMod-raster converteert naar GeoTIFF.\n\nDoelen\n\n\nBepalen van de mate van verstedelijking van ieder knelpunt-stroomgebied\n\n\nVerkrijgen\n\nOntvangen van Waterschap Limburg in de vorm van de kaart met stedelijk oppervlak (SOPP.IDF) en door ons geconverteerd naar .TIF (GeoTiff).\n\n\n\n\n\n\n\nStedelijk oppervlak per 25x25m rastercel.\n\n\n\n\n\n\n\n\n\n\nOpmerking\n\n\n\nWe merken op dat de cellen een maximaal stedelijk oppervlak van 312.5 m2 hebben. Dit is slechts de helft van het theoretische maximum van 625 m2. Een keuze door de grondwatermodelleurs van Ibrahym ligt hieraan ten grondslag. Voor dit project beschouwen we een multiplier van maximaal 2 als een extra variabele waaraan nog gedraaid kan worden.\n\n\n\n\nNeerslagrasters\nOmdat de stroomgebieden behorende bij de knelpunten over de landsgrenzen reiken is het niet mogelijk om bij Meteobase de neerslagreeksen te downloaden. Wat echter wel mogelijk is, is met een script rechtstreeks de WIWB-API bevragen. Dit kan met Python, maar in ons geval werken we met de programma’s die achter Meteobase draaien: WIWBRASTER2ASCII.EXE en WIWBRASTERBYPOLY.EXE. De broncode hiervan is te vinden op de repository van Meteobase.\n\nWIWBRASTER2ASCII.EXE\n\nBevraagt de rasters van WIWB en schrijft ze weg in RD-projectie, in ASCII formaat (.ASC).\n\nWIWBRASTERBYPOLY.EXE\n\nBevraagt de rasters van WIWB en aggregeert de neerslagsom per polygoon van een opgegeven shapefile. Schrijft het resultaat vervolgens als tijdreeks per polygoon naar een CSV-bestand.\n\n\n\n\nDe recente IRC-neerslagrasters (Internationaal RadarComposiet) van KNMI reiken voldoende ver over de landsgrenzen.\n\nDoelen\n\n\nLangjarige reeksen met gebiedsneerslag per knelpunt afleiden.\n\n\nVerkrijgen\n\nDoor rechtstreeks de API van WIWB (Weer Informatie voor het Waterbeheer) te bevragen.\n\n\n\n\n\n\n\nVoorbeeld van een neerslagraster uit het IRC.\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\nEuropees hoogtemodel EU-DEM (klik voor groot)\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\nBeheergebied Waterschap Limburg (klik voor groot)\nStedelijk oppervlak per 25x25m rastercel.\nVoorbeeld van een neerslagraster uit het IRC.",
+    "text": "Hier beschrijven we welke data wordt gebruikt bij het uitvoeren van een analyse met de Blokkendoos. Waar mogelijk geven we ook een handreiking om de betreffende data te kunnen vergaren. Ook bespreken we uitgebreid hoe deze data wordt gecombineerd met andere data om te komen tot kaarten en kentallen.\n\n\n\n\nHoogterasters vormen een van de voornaamste gegevensbronnen voor de Blokkendoos. Echter omdat de strooomgebieden grensoverschrijdend zijn gebruiken we het Nederlandse AHN alleen daar waar een hoge resolutie gevraagd wordt. Zo maken we voor de stroomgebiedsbepaling gebruik van een grensoverschrijdend raster.\n\nDoel\n\nBepalen van de hellingshoek van het maaiveld\n\nVerkrijgen\n\nVia PDOK kan hoogtedata voor Nederland worden verkregen. Voor het GIS-programma QGis is een uitstekende plugin beschikbaar waarmee datasets van PDOK kunnen worden opgehaald. Wij kiezen voor het DTM (Digital Terrain Model) met 50 cm resolutie. Uit deze dataset zijn boomtoppen en daken weggefilterd en is het maaiveld doorgeïnterpoleerd. Watervlakken zijn weggelaten uit deze dataset.\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\n\n\n\n\n\n\n\n\n\nOm de grensoverschrijdende stroomgebieden te kunnen identificeren gebruiken we het EU-DEM, vervaardigd in het Copernicus-programma. De rastercellen zijn ca. 20 bij 31m groot.\n\nDoel\n\nVoor ieder knelpunt het stroomgebied in kaart brengen\n\nVerkrijgen\n\nhet EU-DEM kan in zijn geheel gedownload worden van deze website.\n\n\n\n\n\n\n\nEuropees hoogtemodel EU-DEM (klik voor groot)\n\n\n\n\n\n\n\n\n\nOm hydraulische knelpunten op te kunnen lossen met de beoogde maatregelen is uiteraard een lijst met bekende knelpunten te hebben.\n\nDoelen\n\n\nHet stroomgebied van ieder knelpunt in kaart brengen zodat de haalbaarheid van maatregelen kan worden onderzocht.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke bekende knelpunten worden betrokken bij de verantwoordelijke waterbeheerder: Waterschap of Gemeente. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp).\n\n\n\n\n\n\n\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\n\n\n\n\n\n\n\n\n\nOm een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).\n\nDoelen\n\n\nRuimtelijk afbakenen van het gebied waarbinnen analyses en berekeningen moeten worden gedaan.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoordelijke autoriteit: Waterschap, Gemeente of Provincie. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp), Geopackage (.gpkg) of GeoJSON (.geojson).\n\n\n\n\n\n\n\nBeheergebied Waterschap Limburg (klik voor groot)\n\n\n\n\n\n\n\nHet aandeel stedelijk gebied is een belangrijke indicator van de respons van een stroomgebied op hevige neerslag. Als bronbestand hiervoor gebruiken we de SOPP-kaart (Stedelijk Oppervlak) zoals gebruikt in het regionale grondwatermodel Ibrahym. Waterschap Limburg was zo vriendelijk deze kaart te verschaffen.\n\n\nOm de kaart te kunnen omwerken naar een bruikbaar inputformaat voor de analyse schrijven we een Python-script wat het iMod-raster converteert naar GeoTIFF.\n\nDoelen\n\n\nBepalen van de mate van verstedelijking van ieder knelpunt-stroomgebied\n\n\nVerkrijgen\n\nOntvangen van Waterschap Limburg in de vorm van de kaart met stedelijk oppervlak (SOPP.IDF) en door ons geconverteerd naar .TIF (GeoTiff).\n\n\n\n\n\n\n\nStedelijk oppervlak per 25x25m rastercel.\n\n\n\n\n\n\n\n\n\n\nOpmerking\n\n\n\nWe merken op dat de cellen een maximaal stedelijk oppervlak van 312.5 m2 hebben. Dit is slechts de helft van het theoretische maximum van 625 m2. Een keuze door de grondwatermodelleurs van Ibrahym ligt hieraan ten grondslag. Voor dit project beschouwen we een multiplier van maximaal 2 als een extra variabele waaraan nog gedraaid kan worden.\n\n\n\n\n\nOmdat de stroomgebieden behorende bij de knelpunten over de landsgrenzen reiken is het niet mogelijk om bij Meteobase de neerslagreeksen te downloaden. Wat echter wel mogelijk is, is met een script rechtstreeks de WIWB-API bevragen. Dit kan met Python, maar in ons geval werken we met de programma’s die achter Meteobase draaien: WIWBRASTER2ASCII.EXE en WIWBRASTERBYPOLY.EXE. De broncode hiervan is te vinden op de repository van Meteobase.\n\nWIWBRASTER2ASCII.EXE\n\nBevraagt de rasters van WIWB en schrijft ze weg in RD-projectie, in ASCII formaat (.ASC).\n\nWIWBRASTERBYPOLY.EXE\n\nBevraagt de rasters van WIWB en aggregeert de neerslagsom per polygoon van een opgegeven shapefile. Schrijft het resultaat vervolgens als tijdreeks per polygoon naar een CSV-bestand.\n\n\n\n\nDe recente IRC-neerslagrasters (Internationaal RadarComposiet) van KNMI reiken voldoende ver over de landsgrenzen.\n\nDoelen\n\n\nLangjarige reeksen met gebiedsneerslag per knelpunt afleiden.\n\n\nVerkrijgen\n\nDoor rechtstreeks de API van WIWB (Weer Informatie voor het Waterbeheer) te bevragen.\n\n\n\n\n\n\n\nVoorbeeld van een neerslagraster uit het IRC.\n\n\n\n\n\n\n\n\n\n\n\n\n\nHoogtekaart Zuidelijk Limburg (klik voor groot)\nEuropees hoogtemodel EU-DEM (klik voor groot)\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\nBeheergebied Waterschap Limburg (klik voor groot)\nStedelijk oppervlak per 25x25m rastercel.\nVoorbeeld van een neerslagraster uit het IRC.",
     "crumbs": [
       "Bronnen",
       "Voorbereiding",
@@ -103,7 +103,7 @@
     "href": "Data/verwerking.html",
     "title": "Gegevensverwerking",
     "section": "",
-    "text": "Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos. Enkele van deze bewerkingen hebben we ondergebracht in Python-scripts die u ook in deze repository kunt vinden, in de map ‘python’. Voor andere bewerkingen maakten we gebruik van bestaande functies in het programma HydroToolbox (Hydroconsult) of van executables achter Meteobase.\n\n\nVerreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nDe methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.\n\n\n\nNaam: catchment_delineation.py\nInput:\n\nShapefile met knelpuntlocaties (let op: polygonen opgeven; niet punten!)\nNaam van het veld wat het ID van ieder knelpunt bevat\nRaster met hoogtewaarden. In verband met het grensoverschrijdend karakter hier gekozen voor het EU-DEM\nShapefile met de watergangen in de regio\n\nOutput:\n\nShapefile met polygonen\n\n\nWe merken op dat de stroomgebieden van de diverse knelpunten vaak overlappen. Hierdoor zijn niet alle stroomgebieden direct zichtbaar op de kaart.\n\n\n\n\n\nResultaat van Catchment Delineation in Python.\n\n\n\n\nHet ruimtelijk bereik van de uiteindelijke stroomgebiedenkaart is:\n\n\n\nHoekpunt\nX-Coordinaat\nY-Coordinaat\n\n\n\n\nLinksonder\n177940.8278912788\n295740.8683683545\n\n\nRechtsboven\n207240.2618201609\n325355.8341030380\n\n\n\n\n\n\nVan ieder knelpunt-stroomgebied willen we nu het oppervlak stedelijk gebied in kaart brengen. Dit doen we door door in het programma HydroToolbox (Hydroconsult) een analyse uit te voeren op het onderliggende oppervlak stedelijk gebied onder iedere polygoon.\n\n\n\n\n\nInventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.\n\n\n\n\n\nNaam: Hydrotoolbox, functie Vector Operations - add statistics from grid\nInput:\n\nShapefile met stroomgebieden van de knelpuntlocaties\nNaam van het veld waarnaar het resultaat moet worden geschreven\nRaster met oppervlakte landgebruik per cel\n\nOutput:\n\nEen nieuw veld in de shapefile met stroomgebieden. Hierin de oppervlaktes in m2\n\n\n\n\n\n\n\nOm voor ieder knelpunt-stroomgebied een tijdreeks met historische neerslag te kunnen verkrijgen zetten we het programma WIWBRASTERBYPOLY.EXE (een executable van Meteobase) in. Hierbij geven we de (gezipte) shapefile met knelpunt-stroomgebieden mee. Het programma aggregeert de neerslag per stroomgebied en schrijft het resultaat naar een serie tijdreeksen. De duur van deze reeksen is beperkt omdat het Internationaal Radar Composiet nog niet heel lang geleden ontwikkeld is.\n\n\n\nResultaat van Catchment Delineation in Python.\nInventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.",
+    "text": "Hier beschrijven we hoe we de verzamelde data verwerken tot input voor de Blokkendoos. Enkele van deze bewerkingen hebben we ondergebracht in Python-scripts die u ook in deze repository kunt vinden, in de map ‘python’. Voor andere bewerkingen maakten we gebruik van bestaande functies in het programma HydroToolbox (Hydroconsult) of van executables achter Meteobase.\n\n\nVerreweg de belangrijkste invoer voor de Blokkendoos is het stroomgebied wat behoort bij ieder bekend wateroverlastknelpunt. Wanneer dit stroomgebied bekend is kan de Blokkendoos talloze analyses uitvoeren, bijvoorbeeld om te berekenen welke oppervlaktes geschikt zijn voor implementatie van bepaalde maatregelen.\nDe methode om te komen tot een shapefile met een stroomgebied per knelpunt hebben we vastgelegd in een Python-script.\n\n\n\nNaam: catchment_delineation.py\nInput:\n\nShapefile met knelpuntlocaties (let op: polygonen opgeven; niet punten!)\nNaam van het veld wat het ID van ieder knelpunt bevat\nRaster met hoogtewaarden. In verband met het grensoverschrijdend karakter hier gekozen voor het EU-DEM\nShapefile met de watergangen in de regio\n\nOutput:\n\nShapefile met polygonen\n\n\nWe merken op dat de stroomgebieden van de diverse knelpunten vaak overlappen. Hierdoor zijn niet alle stroomgebieden direct zichtbaar op de kaart.\n\n\n\n\n\nResultaat van Catchment Delineation in Python.\n\n\n\n\nHet ruimtelijk bereik van de uiteindelijke stroomgebiedenkaart is:\n\n\n\nHoekpunt\nX-Coordinaat\nY-Coordinaat\n\n\n\n\nLinksonder\n177940.8278912788\n295740.8683683545\n\n\nRechtsboven\n207240.2618201609\n325355.8341030380\n\n\n\n\n\n\nVan ieder knelpunt-stroomgebied willen we nu het oppervlak stedelijk gebied in kaart brengen. Dit doen we door door in het programma HydroToolbox (Hydroconsult) een analyse uit te voeren op het onderliggende oppervlak stedelijk gebied onder iedere polygoon.\n\n\n\n\n\nInventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.\n\n\n\n\n\nNaam: Hydrotoolbox, functie Vector Operations - add statistics from grid\nInput:\n\nShapefile met stroomgebieden van de knelpuntlocaties\nNaam van het veld waarnaar het resultaat moet worden geschreven\nRaster met oppervlakte landgebruik per cel\n\nOutput:\n\nEen nieuw veld in de shapefile met stroomgebieden. Hierin de oppervlaktes in m2\n\n\n\n\n\n\n\nOm het effect maatregelen zoals het aanleggen van regentonnen goed te kunnen kwantificeren is het nodig om te weten hoeveel aansluitingen er binnen ieder stroomgebied gerealiseerd kunnen worden. Dit vraagt om informatie over het aantal panden per stroomgebied en het daaraan verbonden dakoppervlak.\nNet als andere stroomgebiedsanalyses ontwikkelen we hiervoor een Python-script. Dit script gebruikt OpenStreetMap als basis en telt binnen ieder stroomgebied het aantal panden op. Ook sommeert het het dakoppervlak van alle inliggende panden.\n\n\n\nWaterschap Limburg beheert een zeer groot aantal regenwaterbuffers. Deze buffers hebben een dempend effect op de beekafvoeren en een goed inzicht in de hoeveelheid regenwaterbuffers in een stroomgebied en de daarmee gemoeide bergingscapaciteit is essentieel om de effecten op de beekafvoer in beeld te brengen.\nWe ontwikkelen een Python-script om per knelpunt-stroomgebied alle inliggende regenwaterbuffers op te tellen en het daarmee gemoeide bergingsvolume op te tellen.\n\n\n\nOm voor ieder knelpunt-stroomgebied een tijdreeks met historische neerslag te kunnen verkrijgen zetten we het programma WIWBRASTERBYPOLY.EXE (een executable van Meteobase) in. Hierbij geven we de (gezipte) shapefile met knelpunt-stroomgebieden mee. Het programma aggregeert de neerslag per stroomgebied en schrijft het resultaat naar een serie tijdreeksen. De duur van deze reeksen is beperkt omdat het Internationaal Radar Composiet nog niet heel lang geleden ontwikkeld is.\n\n\n\nTen behoeve van de modellering met LISEM is een langjarige tijdreeks met neerslagrasters gevraagd. Om die te verkrijgen zetten we het programma WIWBRASTER2ASCII.EXE in (een executable van Meteobase). Hierbij geven we het ruimtelijke bereik van de stroomgebieden mee.\n\n\n\n\nX\nY\n\n\n\n\nMin\n177940\n295741\n\n\nMax\n207241\n325355\n\n\n\n\n\n\nResultaat van Catchment Delineation in Python.\nInventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.",
     "crumbs": [
       "Bronnen",
       "Voorbereiding",
@@ -139,7 +139,7 @@
     "href": "Data/verwerking.html#neerslagreeksen-per-knelpunt-stroomgebied",
     "title": "Gegevensverwerking",
     "section": "",
-    "text": "Om voor ieder knelpunt-stroomgebied een tijdreeks met historische neerslag te kunnen verkrijgen zetten we het programma WIWBRASTERBYPOLY.EXE (een executable van Meteobase) in. Hierbij geven we de (gezipte) shapefile met knelpunt-stroomgebieden mee. Het programma aggregeert de neerslag per stroomgebied en schrijft het resultaat naar een serie tijdreeksen. De duur van deze reeksen is beperkt omdat het Internationaal Radar Composiet nog niet heel lang geleden ontwikkeld is.\n\n\n\nResultaat van Catchment Delineation in Python.\nInventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.",
+    "text": "Om voor ieder knelpunt-stroomgebied een tijdreeks met historische neerslag te kunnen verkrijgen zetten we het programma WIWBRASTERBYPOLY.EXE (een executable van Meteobase) in. Hierbij geven we de (gezipte) shapefile met knelpunt-stroomgebieden mee. Het programma aggregeert de neerslag per stroomgebied en schrijft het resultaat naar een serie tijdreeksen. De duur van deze reeksen is beperkt omdat het Internationaal Radar Composiet nog niet heel lang geleden ontwikkeld is.",
     "crumbs": [
       "Bronnen",
       "Voorbereiding",
@@ -154,6 +154,138 @@
     "text": "Literatuur\n\n\nSoftware",
     "crumbs": [
       "Bronnen"
+    ]
+  },
+  {
+    "objectID": "Responsanalyse/inleiding.html",
+    "href": "Responsanalyse/inleiding.html",
+    "title": "Inleiding",
+    "section": "",
+    "text": "Een van de onderzoeksvragen uit dit project is hoe snel de afvoer reageert op neerslag: de neerslag-afvoerrespons. In dit hoofdstuk werken we die onderzoeksvraag uit.\n\n\nVoor ieder knelpunt-stroomgebied vragen we een langjarige neerslagreeks op van de WIWB-API. Dit proces staat uitgelegd in het hoofdstuk Gegevensbronnen. Daarnaast downloaden we een langjarige reeks van gemeten afvoeren voor de diverse meetlocaties langs de Geul.",
+    "crumbs": [
+      "Bronnen",
+      "Analyse gebiedsrespons",
+      "Inleiding"
+    ]
+  },
+  {
+    "objectID": "Responsanalyse/inleiding.html#werkwijze",
+    "href": "Responsanalyse/inleiding.html#werkwijze",
+    "title": "Inleiding",
+    "section": "",
+    "text": "Voor ieder knelpunt-stroomgebied vragen we een langjarige neerslagreeks op van de WIWB-API. Dit proces staat uitgelegd in het hoofdstuk Gegevensbronnen. Daarnaast downloaden we een langjarige reeks van gemeten afvoeren voor de diverse meetlocaties langs de Geul.",
+    "crumbs": [
+      "Bronnen",
+      "Analyse gebiedsrespons",
+      "Inleiding"
+    ]
+  },
+  {
+    "objectID": "Data/gegevensbronnen.html#hoogtedata-europa",
+    "href": "Data/gegevensbronnen.html#hoogtedata-europa",
+    "title": "Gegevensbronnen",
+    "section": "",
+    "text": "Om de grensoverschrijdende stroomgebieden te kunnen identificeren gebruiken we het EU-DEM, vervaardigd in het Copernicus-programma. De rastercellen zijn ca. 20 bij 31m groot.\n\nDoel\n\nVoor ieder knelpunt het stroomgebied in kaart brengen\n\nVerkrijgen\n\nhet EU-DEM kan in zijn geheel gedownload worden van deze website.\n\n\n\n\n\n\n\nEuropees hoogtemodel EU-DEM (klik voor groot)",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensbronnen"
+    ]
+  },
+  {
+    "objectID": "Data/gegevensbronnen.html#knelpunten",
+    "href": "Data/gegevensbronnen.html#knelpunten",
+    "title": "Gegevensbronnen",
+    "section": "",
+    "text": "Om hydraulische knelpunten op te kunnen lossen met de beoogde maatregelen is uiteraard een lijst met bekende knelpunten te hebben.\n\nDoelen\n\n\nHet stroomgebied van ieder knelpunt in kaart brengen zodat de haalbaarheid van maatregelen kan worden onderzocht.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke bekende knelpunten worden betrokken bij de verantwoordelijke waterbeheerder: Waterschap of Gemeente. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp).\n\n\n\n\n\n\n\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensbronnen"
+    ]
+  },
+  {
+    "objectID": "Data/gegevensbronnen.html#ruimtelijke-begrenzing",
+    "href": "Data/gegevensbronnen.html#ruimtelijke-begrenzing",
+    "title": "Gegevensbronnen",
+    "section": "",
+    "text": "Om een project ruimtelijk te kunnen afbakenen is het een kaart met begrenzingen nodig. Afhankelijk van de scope kan dit een administratieve begrenzing zijn (beheergebied, provinciegrenzen, gemeentegrenzen) of een hydrologische (stroomgebied, bemalingsgebied).\n\nDoelen\n\n\nRuimtelijk afbakenen van het gebied waarbinnen analyses en berekeningen moeten worden gedaan.\n\n\nVerkrijgen\n\nDoorgaans moeten dergelijke begrenzingskaarten worden betrokken bij de verantwoordelijke autoriteit: Waterschap, Gemeente of Provincie. Meestal zal het gaan om bestanden van het type ESRI Shapefile (.shp), Geopackage (.gpkg) of GeoJSON (.geojson).\n\n\n\n\n\n\n\nBeheergebied Waterschap Limburg (klik voor groot)",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensbronnen"
+    ]
+  },
+  {
+    "objectID": "Data/gegevensbronnen.html#stedelijk-oppervlak",
+    "href": "Data/gegevensbronnen.html#stedelijk-oppervlak",
+    "title": "Gegevensbronnen",
+    "section": "",
+    "text": "Het aandeel stedelijk gebied is een belangrijke indicator van de respons van een stroomgebied op hevige neerslag. Als bronbestand hiervoor gebruiken we de SOPP-kaart (Stedelijk Oppervlak) zoals gebruikt in het regionale grondwatermodel Ibrahym. Waterschap Limburg was zo vriendelijk deze kaart te verschaffen.\n\n\nOm de kaart te kunnen omwerken naar een bruikbaar inputformaat voor de analyse schrijven we een Python-script wat het iMod-raster converteert naar GeoTIFF.\n\nDoelen\n\n\nBepalen van de mate van verstedelijking van ieder knelpunt-stroomgebied\n\n\nVerkrijgen\n\nOntvangen van Waterschap Limburg in de vorm van de kaart met stedelijk oppervlak (SOPP.IDF) en door ons geconverteerd naar .TIF (GeoTiff).\n\n\n\n\n\n\n\nStedelijk oppervlak per 25x25m rastercel.\n\n\n\n\n\n\n\n\n\n\nOpmerking\n\n\n\nWe merken op dat de cellen een maximaal stedelijk oppervlak van 312.5 m2 hebben. Dit is slechts de helft van het theoretische maximum van 625 m2. Een keuze door de grondwatermodelleurs van Ibrahym ligt hieraan ten grondslag. Voor dit project beschouwen we een multiplier van maximaal 2 als een extra variabele waaraan nog gedraaid kan worden.",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensbronnen"
+    ]
+  },
+  {
+    "objectID": "Data/gegevensbronnen.html#neerslagrasters",
+    "href": "Data/gegevensbronnen.html#neerslagrasters",
+    "title": "Gegevensbronnen",
+    "section": "",
+    "text": "Omdat de stroomgebieden behorende bij de knelpunten over de landsgrenzen reiken is het niet mogelijk om bij Meteobase de neerslagreeksen te downloaden. Wat echter wel mogelijk is, is met een script rechtstreeks de WIWB-API bevragen. Dit kan met Python, maar in ons geval werken we met de programma’s die achter Meteobase draaien: WIWBRASTER2ASCII.EXE en WIWBRASTERBYPOLY.EXE. De broncode hiervan is te vinden op de repository van Meteobase.\n\nWIWBRASTER2ASCII.EXE\n\nBevraagt de rasters van WIWB en schrijft ze weg in RD-projectie, in ASCII formaat (.ASC).\n\nWIWBRASTERBYPOLY.EXE\n\nBevraagt de rasters van WIWB en aggregeert de neerslagsom per polygoon van een opgegeven shapefile. Schrijft het resultaat vervolgens als tijdreeks per polygoon naar een CSV-bestand.\n\n\n\n\nDe recente IRC-neerslagrasters (Internationaal RadarComposiet) van KNMI reiken voldoende ver over de landsgrenzen.\n\nDoelen\n\n\nLangjarige reeksen met gebiedsneerslag per knelpunt afleiden.\n\n\nVerkrijgen\n\nDoor rechtstreeks de API van WIWB (Weer Informatie voor het Waterbeheer) te bevragen.\n\n\n\n\n\n\n\nVoorbeeld van een neerslagraster uit het IRC.",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensbronnen"
+    ]
+  },
+  {
+    "objectID": "Data/gegevensbronnen.html#regenwaterbuffers",
+    "href": "Data/gegevensbronnen.html#regenwaterbuffers",
+    "title": "Gegevensbronnen",
+    "section": "",
+    "text": "Hoogtekaart Zuidelijk Limburg (klik voor groot)\nEuropees hoogtemodel EU-DEM (klik voor groot)\nHydraulische knelpunten in het stroomgebied van de Geul (klik voor groot)\nBeheergebied Waterschap Limburg (klik voor groot)\nStedelijk oppervlak per 25x25m rastercel.\nVoorbeeld van een neerslagraster uit het IRC.",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensbronnen"
+    ]
+  },
+  {
+    "objectID": "Data/verwerking.html#aantal-panden-en-dakoppervlak-per-stroomgebied",
+    "href": "Data/verwerking.html#aantal-panden-en-dakoppervlak-per-stroomgebied",
+    "title": "Gegevensverwerking",
+    "section": "",
+    "text": "Om het effect maatregelen zoals het aanleggen van regentonnen goed te kunnen kwantificeren is het nodig om te weten hoeveel aansluitingen er binnen ieder stroomgebied gerealiseerd kunnen worden. Dit vraagt om informatie over het aantal panden per stroomgebied en het daaraan verbonden dakoppervlak.\nNet als andere stroomgebiedsanalyses ontwikkelen we hiervoor een Python-script. Dit script gebruikt OpenStreetMap als basis en telt binnen ieder stroomgebied het aantal panden op. Ook sommeert het het dakoppervlak van alle inliggende panden.",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensverwerking"
+    ]
+  },
+  {
+    "objectID": "Data/verwerking.html#aantal-regenwaterbuffers",
+    "href": "Data/verwerking.html#aantal-regenwaterbuffers",
+    "title": "Gegevensverwerking",
+    "section": "",
+    "text": "Waterschap Limburg beheert een zeer groot aantal regenwaterbuffers. Deze buffers hebben een dempend effect op de beekafvoeren en een goed inzicht in de hoeveelheid regenwaterbuffers in een stroomgebied en de daarmee gemoeide bergingscapaciteit is essentieel om de effecten op de beekafvoer in beeld te brengen.\nWe ontwikkelen een Python-script om per knelpunt-stroomgebied alle inliggende regenwaterbuffers op te tellen en het daarmee gemoeide bergingsvolume op te tellen.",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensverwerking"
+    ]
+  },
+  {
+    "objectID": "Data/verwerking.html#neerslagrasters",
+    "href": "Data/verwerking.html#neerslagrasters",
+    "title": "Gegevensverwerking",
+    "section": "",
+    "text": "Ten behoeve van de modellering met LISEM is een langjarige tijdreeks met neerslagrasters gevraagd. Om die te verkrijgen zetten we het programma WIWBRASTER2ASCII.EXE in (een executable van Meteobase). Hierbij geven we het ruimtelijke bereik van de stroomgebieden mee.\n\n\n\n\nX\nY\n\n\n\n\nMin\n177940\n295741\n\n\nMax\n207241\n325355\n\n\n\n\n\n\nResultaat van Catchment Delineation in Python.\nInventarisatie stedelijk oppervlak per knelpunt-stroomgebied met HydroToolbox.",
+    "crumbs": [
+      "Bronnen",
+      "Voorbereiding",
+      "Gegevensverwerking"
     ]
   }
 ]

@@ -64,9 +64,28 @@ Van ieder knelpunt-stroomgebied willen we nu het oppervlak stedelijk gebied in k
 
 :::
 
+## Aantal panden en dakoppervlak per stroomgebied
+Om het effect maatregelen zoals het aanleggen van regentonnen goed te kunnen kwantificeren is het nodig om te weten hoeveel aansluitingen er binnen ieder stroomgebied gerealiseerd kunnen worden. Dit vraagt om informatie over het aantal panden per stroomgebied en het daaraan verbonden dakoppervlak.
+
+Net als andere stroomgebiedsanalyses ontwikkelen we hiervoor een Python-script. Dit script gebruikt OpenStreetMap als basis en telt binnen ieder stroomgebied het aantal panden op. Ook sommeert het het dakoppervlak van alle inliggende panden.
+
+## Aantal regenwaterbuffers
+Waterschap Limburg beheert een zeer groot aantal regenwaterbuffers. Deze buffers hebben een dempend effect op de beekafvoeren en een goed inzicht in de hoeveelheid regenwaterbuffers in een stroomgebied en de daarmee gemoeide bergingscapaciteit is essentieel om de effecten op de beekafvoer in beeld te brengen.
+
+We ontwikkelen een Python-script om per knelpunt-stroomgebied alle inliggende regenwaterbuffers op te tellen en het daarmee gemoeide bergingsvolume op te tellen. 
+
 ## Neerslagreeksen per knelpunt-stroomgebied
 
 Om voor ieder knelpunt-stroomgebied een tijdreeks met historische neerslag te kunnen verkrijgen zetten we het programma WIWBRASTERBYPOLY.EXE (een executable van [Meteobase](www.meteobase.nl)) in. Hierbij geven we de (gezipte) shapefile met knelpunt-stroomgebieden mee. Het programma aggregeert de neerslag per stroomgebied en schrijft het resultaat naar een serie tijdreeksen. De duur van deze reeksen is beperkt omdat het Internationaal Radar Composiet nog niet heel lang geleden ontwikkeld is.
+
+## Neerslagrasters
+
+Ten behoeve van de modellering met LISEM is een langjarige tijdreeks met neerslagrasters gevraagd. Om die te verkrijgen zetten we het programma WIWBRASTER2ASCII.EXE in (een executable van [Meteobase](www.meteobase.nl)). Hierbij geven we het ruimtelijke bereik van de stroomgebieden mee.
+
+|       | X      | Y      |
+|-------|--------|--------|
+| Min   | 177940 | 295741 |
+| Max   | 207241 | 325355 |
 
 
 

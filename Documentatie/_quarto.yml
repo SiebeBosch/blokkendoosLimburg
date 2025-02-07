@@ -37,6 +37,10 @@ website:
         contents:
           - text: "Inleiding"
             href: Blokkendoos/inleiding.qmd
+      - section: "Analyse gebiedsrespons"
+        contents:
+          - text: "Inleiding"
+            href: Responsanalyse/inleiding.qmd
       - text: "Bronnen"
         href: literatuur.qmd
 
@@ -45,7 +49,7 @@ format:
   html:
     theme: cosmo
     css: custom.css
-    #toc: true
+    toc: true
     #include-in-header: header.html
     lightbox: 
       match: auto

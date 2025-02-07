@@ -25,7 +25,7 @@ Verkrijgen
 
 :::
 
-### Hoogtedata Europa
+## Hoogtedata Europa
 
 ::: {.grid}
 
@@ -49,7 +49,7 @@ Verkrijgen
 :::
 
 
-### Knelpunten
+## Knelpunten
 
 
 ::: {.grid}
@@ -75,7 +75,7 @@ Verkrijgen
 
 
 
-### Ruimtelijke begrenzing
+## Ruimtelijke begrenzing
 
 ::: {.grid}
 ::: {.g-col-6}
@@ -99,7 +99,7 @@ Verkrijgen
 :::
 
 
-### Stedelijk oppervlak
+## Stedelijk oppervlak
 Het aandeel stedelijk gebied is een belangrijke indicator van de respons van een stroomgebied op hevige neerslag. Als bronbestand hiervoor gebruiken we de SOPP-kaart (Stedelijk Oppervlak) zoals gebruikt in het regionale grondwatermodel Ibrahym. Waterschap Limburg was zo vriendelijk deze kaart te verschaffen.
 
 
@@ -128,7 +128,7 @@ We merken op dat de cellen een maximaal stedelijk oppervlak van 312.5 m^2^ hebbe
 
 :::
 
-### Neerslagrasters
+## Neerslagrasters
 
 Omdat de stroomgebieden behorende bij de knelpunten over de landsgrenzen reiken is het niet mogelijk om bij Meteobase de neerslagreeksen te downloaden. Wat echter wel mogelijk is, is met een script rechtstreeks de WIWB-API bevragen. Dit kan met Python, maar in ons geval werken we met de programma's die achter Meteobase draaien: WIWBRASTER2ASCII.EXE en WIWBRASTERBYPOLY.EXE. De broncode hiervan is te vinden op de repository van [Meteobase](https://github.com/SiebeBosch/Meteobase).
 
@@ -157,3 +157,10 @@ Verkrijgen
 :::
 
 :::
+
+## Aantal woningen
+
+
+
+## Regenwaterbuffers
+
