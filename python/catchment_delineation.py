@@ -195,7 +195,7 @@ if __name__ == "__main__":
     # Paths to input files and output
     # Notice that the discharge locations are polygons, not points
     discharges_path = r"c:\SYNC\PROJECTEN\H3147.WRL\02.GIS\Knelpunten\knelpunt_polygon.shp"
-    id_field = "NAAM"
+    id_field = "NAAM_DEF"
     dem_path = r"c:\SYNC\PROJECTEN\H3147.WRL\02.GIS\Hoogtedata\eudem_dem_4258_europe_clip.tif"
     channels_path = r"c:\SYNC\PROJECTEN\H3147.WRL\02.GIS\Watergangen\waterlopen_WL.shp"
     output_path = r"c:\SYNC\PROJECTEN\H3147.WRL\02.GIS\Knelpunten\strgeb_knelpunt_EU_DEM.shp"
